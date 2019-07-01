@@ -1,0 +1,25 @@
+{
+  "name": "cipherchase",
+  "version": "1.0.0",
+  "description": "Test your typing skills with cipher chase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cipherchase/cipherchase.git"
+  },
+  "keywords": [
+    "Game",
+    "node",
+    "react",
+    "redux"
+  ],
+  "author": "Geoff, Donald, David, Bryan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cipherchase/cipherchase/issues"
+  },
+  "homepage": "https://github.com/cipherchase/cipherchase#readme"
+}
