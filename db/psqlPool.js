@@ -12,6 +12,7 @@ if (process.env.NODE_ENV === 'production') {
     port: 5432,
   });
 } else {
+  console.log(process.env.DEV_DB_PW);
   pool = new Pool({
     host: 'localhost',
     database: process.env.DEV_DB,
