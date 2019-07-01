@@ -1,5 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+import MainContainer from './containers/MainContainer';
+
+class App extends Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
+      <div>
+        <MainContainer />
+      </div>
+    );
+  }
+}
+
+export default App;
