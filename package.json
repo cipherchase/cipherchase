@@ -21,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/cipherchase/cipherchase/issues"
   },
-  "homepage": "https://github.com/cipherchase/cipherchase#readme"
+  "homepage": "https://github.com/cipherchase/cipherchase#readme",
+  "dependencies": {
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.8"
+  }
 }
