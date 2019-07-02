@@ -4,7 +4,7 @@ const state = {
 for (let i = 0; i < test.length; i++) {
   counter += 1;
 }`,
-  cpuSpeed: Math.random() * 100,
+  cpuSpeed: 50 + Math.random() * 50,
   score: 0,
   gameActive: false,
 }
