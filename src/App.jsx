@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { Provider } from 'react-redux';
 import styled from 'styled-components';
+
+import store from './store';
 
 import MainContainer from './containers/MainContainer.jsx';
 
 const App = () => (
-    <div>
-      <MainContainer />
-    </div>
+  <Provider>
+    <MainContainer />
+  </Provider>
 );
 
 export default App;
