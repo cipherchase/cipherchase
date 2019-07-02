@@ -1,4 +1,4 @@
-import * as types from './actions';
+import * as types from './actionTypes';
 
 /* example of an action creator
 

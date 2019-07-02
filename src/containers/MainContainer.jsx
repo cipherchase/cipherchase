@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
-const MainContainer = () => <div>This is MainContainer</div>;
+const MainContainer = () => (
+  <div>
+    <h1>Ciper Chase </h1>
+  </div>
+);
 
 export default MainContainer;
