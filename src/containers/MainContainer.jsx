@@ -1,6 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+// import { connect } from 'react-redux';
 
-const MainContainer = () => <div>This is MainContainer</div>;
+const MainContainer = () => (
+  <div>
+    This is Main Container
+  </div >
+);
 
 export default MainContainer;
