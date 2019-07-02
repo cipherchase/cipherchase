@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import MainContainer from './containers/MainContainer';
 
-class App extends Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    return (
-      <div>
-        <MainContainer />
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div>
+      <MainContainer />
+    </div>
+  );
+};
 
 export default App;
