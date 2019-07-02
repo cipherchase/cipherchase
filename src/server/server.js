@@ -16,6 +16,9 @@ app.use((req, res, next) => { console.log(req.body); next(); });
 app.get('/', (req, res) => {
   res.send('Game server is running');
 });
+
+app.post('/signup', userController.createUser);
+
 app.get('/getallUsers', userController.getAllUsers, (req, res) => {
   res.send('Getting all users');
 });
