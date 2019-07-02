@@ -26,22 +26,22 @@ const SpaceShip = styled.i`
 
 const Race = ({ playerName }) => {
   let position = 0;
-  let increment = 50;
+  // will need to change depending on the length of the problem
+  const increment = 50;
   return (
     <Wrapper>
       <SpaceShip id={playerName} className="fas fa-space-shuttle fa-4x" />
       <RaceTrack />
       <PlayerLabel>{playerName}</PlayerLabel>
       <button onClick={() => {
-        console.log(position);
         if (position <= 800 - increment) {
           const ship = document.querySelector(`#${playerName}`);
           position += increment;
           ship.style.left = `${position}px`;
         }
-      }}>Move Car</button>
+      }}>Move</button>
     </Wrapper>
-  )
+  );
 };
 
 export default Race;

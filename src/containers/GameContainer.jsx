@@ -1,6 +1,6 @@
 import React from 'react';
-import Race from '../components/Race';
 import styled from 'styled-components';
+import Race from '../components/Race.jsx';
 
 const Races = styled.div`
   display: flex;
