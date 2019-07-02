@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === 'production') {
     port: 5432,
   });
 } else {
-  console.log(process.env.DEV_DB_PW);
   pool = new Pool({
     host: 'localhost',
     database: process.env.DEV_DB,
@@ -22,7 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 pool.connect((err, client, done) => {
-  if (err) return console.error('Unsuccessfully connected to db');
+  if (err) return console.error('Unsuccessfully connected to db', err);
   console.log('Successfully connected to db!');
 });
 

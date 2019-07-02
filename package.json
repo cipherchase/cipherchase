@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/cipherchase/cipherchase#readme",
   "dependencies": {
-    "dotenv": "^8.0.0",
     "pg": "^7.11.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.0.0"
   }
 }
