@@ -4,7 +4,9 @@
   "description": "Test your typing skills with cipher chase",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "dev": "webpack-dev-server --open",
+    "lint": "npx eslint '**/*.{tsx,ts,js,jsx}' --fix --quiet"
   },
   "repository": {
     "type": "git",
@@ -23,10 +25,30 @@
   },
   "homepage": "https://github.com/cipherchase/cipherchase#readme",
   "dependencies": {
+    "enzyme": "^3.10.0",
+    "jest": "^24.8.0",
+    "pg": "^7.11.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "dotenv": "^8.0.0",
+    "eslint": "^6.0.1",
+    "nodemon": "^1.19.1",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
     "redux-devtools-extension": "^2.13.8"
   }
 }
