@@ -13,10 +13,16 @@ const RaceTrack = styled.div`
   height: 3px;
 `;
 
+const PlayerLabel = styled.h4`
+  margin-right: 10px;
+`
+
 const Race = () => (
   <Wrapper>
+    <PlayerLabel>CPU</PlayerLabel>
     <i style={{ color: 'purple' }} className="fas fa-space-shuttle fa-4x" />
     <RaceTrack />
+    <button>Move Car</button>
   </Wrapper>
 
 );
