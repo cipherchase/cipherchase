@@ -1,6 +1,6 @@
 // To be filled when state variables in store are finalized
-const state = {
+const initialState = {
 
-}
+};
 
-export default state;
+export default initialState;

@@ -1,4 +1,4 @@
-const state = {
+const initialState = {
   isLoggedIn: false,
   codeChallenge: `let counter = 0;
 for (let i = 0; i < test.length; i++) {
@@ -7,6 +7,6 @@ for (let i = 0; i < test.length; i++) {
   cpuSpeed: 50 + Math.random() * 50,
   score: 0,
   gameActive: false,
-}
+};
 
-export default state;
+export default initialState;

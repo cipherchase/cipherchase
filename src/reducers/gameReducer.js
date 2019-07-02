@@ -1,7 +1,5 @@
 import * as types from '../actions/actionTypes';
-import state from '../state/mockState';
-
-const initialState = state;
+import initialState from '../state/mockState';
 
 const gameReducer = (state = initialState, action) => {
   switch (action.type) {
