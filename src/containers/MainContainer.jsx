@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import LandingPage from './LandingPage';
+import React from 'react';
 
 const MainContainer = () => (
   <div>
-    This is MainContainer
-    <LandingPage />
+    <h1>Ciper Chase </h1>
   </div>
 );
 
