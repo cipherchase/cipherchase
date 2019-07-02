@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/cipherchase/cipherchase/issues"
   },
-  "homepage": "https://github.com/cipherchase/cipherchase#readme"
+  "homepage": "https://github.com/cipherchase/cipherchase#readme",
+  "dependencies": {
+    "pg": "^7.11.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.0.0"
+  }
 }
