@@ -11,22 +11,22 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['@babel/preset-env', '@babel/preset-react']
-        }
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    ]
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
@@ -35,10 +35,10 @@ module.exports = {
     proxy: {
       '/api': 'http://localhost:3000',
       '/login': 'http://localhost:3000',
-      '/signup': 'http://localhost:3000'
+      '/signup': 'http://localhost:3000',
     },
     publicPath: 'http://localhost:8080/build/',
     hot: false,
-    historyApiFallback: true
-  }
+    historyApiFallback: true,
+  },
 };
