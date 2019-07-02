@@ -3,12 +3,10 @@ import Race from '../components/Race';
 import styled from 'styled-components';
 
 const Races = styled.div`
-  border: 1px solid red;
-  width: 90%;
-  align-items: center;
   display: flex;
   flex-direction: column;
-`
+  padding: 10px;
+`;
 
 const GameContainer = () => (
   <div>
