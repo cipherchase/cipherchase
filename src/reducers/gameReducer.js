@@ -1,5 +1,5 @@
 import * as types from '../actions/actionTypes';
-import state from '../state/mockState'
+import state from '../state/mockState';
 
 const initialState = state;
 
