@@ -6,13 +6,15 @@ const Races = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
+  width: 1000px;
+  border: 1px solid black;
 `;
 
 const GameContainer = () => (
   <div>
     <Races>
-      <Race />
-      <Race />
+      <Race playerName="CPU" />
+      <Race playerName="P1" />
     </Races>
   </div>
 );

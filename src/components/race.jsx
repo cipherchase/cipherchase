@@ -8,23 +8,21 @@ const Wrapper = styled.div`
 `;
 
 const RaceTrack = styled.div`
-  width: 70rem;
+  width: 800px;
   border-top: 3px dashed black;
-  height: 3px;
 `;
 
 const PlayerLabel = styled.h4`
-  margin-right: 10px;
+  margin-left: 50px;
 `
 
-const Race = () => (
+const Race = ({ playerName }) => (
   <Wrapper>
-    <PlayerLabel>CPU</PlayerLabel>
     <i style={{ color: 'purple' }} className="fas fa-space-shuttle fa-4x" />
     <RaceTrack />
+    <PlayerLabel>{playerName}</PlayerLabel>
     <button>Move Car</button>
   </Wrapper>
-
 );
 
 export default Race;
