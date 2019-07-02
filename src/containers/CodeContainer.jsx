@@ -1,37 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
-const code = 'let counter = 0;';
-let counter = 0;
+const mapStateToProps = store => (
+  {
+    codeChallenge: store.games.codeChallenge,
+  }
+);
+
+const mapDispatchToProps = store => (
+  {
+
+  }
+);
 
 const Highlight = styled.span`
   background-color: yellow;
 `;
 
-const highlight = (str, end) => { 
-  str = '<span class="highlight">' + 
-      str.substr(0, end + 1) +
-      '</span>' +
-      str.substr(end + 1);
-  return str;
-
-  // str = '<Highlight>' + 
-  // str.substr(0, end + 1) +
-  // '</Highlight>' +
-  // str.substr(end + 1);
-  // return str;
-}
-
 const CodeContainer = () => (
   <div>
-    <span id="code-challenge">{code}</span>
+    <Highlight id="highlight">{code.substring(0, counter + 1)}</Highlight>
+    <span>{code.substring(counter + 1)}</span>
     <button
       onClick={
         () => {
-          const codeContainer = document.querySelector('#code-challenge');
-          console.log('innerHTML before highlight ', codeContainer.innerHTML);
-          codeContainer.innerHTML = highlight(code, counter);
-          console.log('innerHTML after highlight ', codeContainer.innerHTML);
           counter += 1;
         }
       }
@@ -41,4 +34,4 @@ const CodeContainer = () => (
   </div>
 );
 
-export default CodeContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(CodeContainer);
