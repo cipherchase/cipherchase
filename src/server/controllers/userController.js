@@ -16,6 +16,9 @@ userController.createUser = (req, res, next) => {
   client.query('INSERT INTO users (username, password, firstname, lastname, email) VALUES ($1, $2, $3, $4, $5);',
     [username, password, firstname, lastname, email],
     (err, results) => {
+      if (err) res.status(500).json({ Error: err });
+      else res.json({ success: 'User registered' });
+      next();
 
     });
 };
