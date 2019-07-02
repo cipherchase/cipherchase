@@ -8,31 +8,39 @@ const Wrapper = styled.div`
 `;
 
 const RaceTrack = styled.div`
-  width: 800px;
+  width: 875px;
   border-top: 3px dashed black;
   position: relative;
-  left: 0;
+  left: -75px;
 `;
 
 const PlayerLabel = styled.h4`
-  margin-left: 50px;
+  margin-left: 10px;
 `;
 
 const SpaceShip = styled.i`
   color: purple;
   position: relative;
+  z-index: 1
 `;
+
 const Race = ({ playerName }) => {
+  let position = 0;
+  let increment = 50;
   return (
     <Wrapper>
       <SpaceShip id={playerName} className="fas fa-space-shuttle fa-4x" />
       <RaceTrack />
       <PlayerLabel>{playerName}</PlayerLabel>
       <button onClick={() => {
-        const ship = document.querySelector(`#${playerName}`);
-        ship.style.left = "100px";
+        console.log(position);
+        if (position <= 800 - increment) {
+          const ship = document.querySelector(`#${playerName}`);
+          position += increment;
+          ship.style.left = `${position}px`;
+        }
       }}>Move Car</button>
-    </Wrapper >
+    </Wrapper>
   )
 };
 
