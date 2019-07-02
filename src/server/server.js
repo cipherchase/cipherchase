@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const userController = require('./controllers/userController');
+
 const PORT = process.env.PORT || '3000';
 const app = express();
-
 
 
 app.use(bodyParser.json());
@@ -14,6 +15,9 @@ app.use((req, res, next) => { console.log(req.body); next(); });
 
 app.get('/', (req, res) => {
   res.send('Game server is running');
+});
+app.get('/getallUsers', userController.getAllUsers, (req, res) => {
+  res.send('Getting all users');
 });
 
 
