@@ -6,8 +6,9 @@ const Races = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: 1000px;
+  width: 1050px;
   border: 1px solid black;
+  margin: 100px;
 `;
 
 const GameContainer = () => (
