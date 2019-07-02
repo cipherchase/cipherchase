@@ -1,7 +1,7 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-let pool; 
+let pool;
 if (process.env.NODE_ENV === 'production') {
   pool = new Pool({
     user: process.env.PROD_DB_USR,
