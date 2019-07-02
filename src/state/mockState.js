@@ -1,5 +1,5 @@
 const state = {
-  isLoggedIn: true,
+  isLoggedIn: false,
   codeChallenge: `let counter = 0;
 for (let i = 0; i < test.length; i++) {
   counter += 1;
