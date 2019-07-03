@@ -8,3 +8,8 @@ import * as types from './actionTypes';
   })
 
 */
+
+// eslint-disable-next-line import/prefer-default-export
+export const moveCar = () => ({
+  type: types.MOVE_CAR,
+});

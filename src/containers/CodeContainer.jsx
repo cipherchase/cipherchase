@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import * as actions from '../actions/actionCreators';
 
 const mapStateToProps = store => (
   {
     codeChallenge: store.games.codeChallenge,
+    playerCharIndex: store.games.playerCharIndex,
   }
 );
 
-const mapDispatchToProps = store => (
+const mapDispatchToProps = dispatch => (
   {
-
+    moveCar: () => dispatch(actions.moveCar()),
   }
 );
 
@@ -18,17 +20,12 @@ const Highlight = styled.span`
   background-color: yellow;
 `;
 
-const CodeContainer = () => (
+const CodeContainer = ({ codeChallenge, playerCharIndex, moveCar }) => (
   <div>
-    <Highlight id="highlight">{code.substring(0, counter + 1)}</Highlight>
-    <span>{code.substring(counter + 1)}</span>
+    <Highlight id="highlight">{codeChallenge.substring(0, playerCharIndex + 1)}</Highlight>
+    <span>{codeChallenge.substring(playerCharIndex + 1)}</span>
     <button
-      onClick={
-        () => {
-          counter += 1;
-        }
-      }
-    >
+      onClick={ () => moveCar() }>
       Click me
     </button>
   </div>
