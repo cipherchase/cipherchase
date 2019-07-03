@@ -25,19 +25,19 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    contentBase: path.join(__dirname, '/'),
+    contentBase: path.join(__dirname, 'dist'),
     port: 8080,
     proxy: {
       '/api': 'http://localhost:3000',
       '/login': 'http://localhost:3000',
       '/signup': 'http://localhost:3000',
     },
-    publicPath: 'http://localhost:8080/build/',
+    publicPath: 'http://localhost:8080/',
     hot: false,
     historyApiFallback: true,
   },
