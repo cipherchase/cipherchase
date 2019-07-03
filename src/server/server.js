@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/signup', userController.createUser);
+app.post('/login', userController.verifyUser);
 
 app.get('/getallUsers', userController.getAllUsers, (req, res) => {
   res.send('Getting all users');
