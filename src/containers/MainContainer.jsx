@@ -1,11 +1,8 @@
 import React from 'react';
 
-// delete later
-import GameContainer from './GameContainer.jsx';
-
 const MainContainer = () => (
   <div>
-
+    <h1>Ciper Chase </h1>
   </div>
 );
 
