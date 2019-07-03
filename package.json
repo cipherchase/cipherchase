@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "webpack-dev-server --open",
-    "lint": "npx eslint '**/*.{tsx,ts,js,jsx}' --fix --quiet"
+    "lint": "npx eslint '**/*.{tsx,ts,js,jsx}' --fix --quiet",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
