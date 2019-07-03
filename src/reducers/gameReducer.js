@@ -7,12 +7,12 @@ const gameReducer = (state = initialState, action) => {
     case types.LOG_IN:
       return {
         ...state,
-        isLoggedIn: action.payload.isLoggedIn
+        isLoggedIn: action.payload.isLoggedIn,
       };
     case types.SIGN_UP:
       return {
         ...state,
-        isLoggedIn: action.payload.isLoggedIn
+        isLoggedIn: action.payload.isLoggedIn,
       };
     default:
       return state;
