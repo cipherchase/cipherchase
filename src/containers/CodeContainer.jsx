@@ -20,9 +20,11 @@ const CodeContainer = ({ codeChallenge, charIndex, moveCar }) => {
 
   useEffect(() => {
     const correct = document.querySelector('#correct');
+    const currentLetter = document.querySelector('#currentLetter');
     const incomplete = document.querySelector('#incomplete');
     correct.innerHTML = codeChallenge.substring(0, charIndex);
-    incomplete.innerHTML = codeChallenge.substring(charIndex);
+    currentLetter.innerHTML = codeChallenge.substring(charIndex, charIndex + 1);
+    incomplete.innerHTML = codeChallenge.substring(charIndex + 1);
   });
 
   return (
@@ -34,18 +36,15 @@ const CodeContainer = ({ codeChallenge, charIndex, moveCar }) => {
         const currentLetter = document.querySelector('#currentLetter');
         if (keyPressCode === codeChallenge[charIndex]) {
           moveCar();
-          currentLetter.innerHTML = '';
+          currentLetter.style.backgroundColor = 'yellow';
         } else {
-          console.log('currentLetter!');
-          currentLetter.innerHTML = codeChallenge.substring(charIndex, charIndex + 1);
-          console.log('ewhich', e.which);
-          console.log('char ', codeChallenge[charIndex]);
+          currentLetter.style.backgroundColor = 'red';
         }
       }
     }
     >
       <span id='correct' style={{ color: 'white', backgroundColor: 'green' }} />
-      <span id='currentLetter' style={{ backgroundColor: 'red' }} />
+      <span id='currentLetter' style={{ backgroundColor: 'yellow' }} />
       <span id='incomplete' style={{ color: '#222' }} />
 
     </div>

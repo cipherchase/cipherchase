@@ -13,7 +13,8 @@ const initialState = {
 const gameReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case types.MOVE_CAR:
+    case types.MOVE_CHAR:
+
       return { ...state, charIndex: state.charIndex + 1 };
 
     default:
