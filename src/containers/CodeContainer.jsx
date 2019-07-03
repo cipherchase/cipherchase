@@ -12,7 +12,7 @@ const mapStateToProps = store => (
 
 const mapDispatchToProps = dispatch => (
   {
-    moveChar: () => dispatch(actions.moveChar()),
+    moveChar: num => dispatch(actions.moveChar(num)),
   }
 );
 
@@ -22,9 +22,20 @@ const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
     const correct = document.querySelector('#correct');
     const currentLetter = document.querySelector('#currentLetter');
     const incomplete = document.querySelector('#incomplete');
+
     correct.innerHTML = codeChallenge.substring(0, charIndex);
-    currentLetter.innerHTML = codeChallenge.substring(charIndex, charIndex + 1);
-    incomplete.innerHTML = codeChallenge.substring(charIndex + 1);
+
+
+    if (codeChallenge.substring(charIndex, charIndex + 5) === '<br/>') {
+      currentLetter.innerHTML = ' ';
+      incomplete.innerHTML = codeChallenge.substring(charIndex);
+    } else if (codeChallenge.substring(charIndex, charIndex + 6) === '&nbsp;') {
+      currentLetter.innerHTML = '&nbsp;';
+      incomplete.innerHTML = codeChallenge.substring(charIndex + 6);
+    } else {
+      currentLetter.innerHTML = codeChallenge.substring(charIndex, charIndex + 1);
+      incomplete.innerHTML = codeChallenge.substring(charIndex + 1);
+    }
   });
 
   return (
@@ -32,10 +43,24 @@ const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
       style={{ border: '1px solid black', width: '500px', height: '500px' }}
       tabIndex="0"
       onKeyPress={(e) => {
-        const keyPressCode = String.fromCharCode(e.which);
+        const keyPressChar = String.fromCharCode(e.which);
         const currentLetter = document.querySelector('#currentLetter');
-        if (keyPressCode === codeChallenge[charIndex]) {
-          moveChar();
+        if (codeChallenge.substring(charIndex, charIndex + 5) === '<br/>') {
+          if (e.which === 13) {
+            moveChar(5);
+            currentLetter.style.backgroundColor = 'yellow';
+          } else {
+            currentLetter.style.backgroundColor = 'red';
+          }
+        } else if (codeChallenge.substring(charIndex, charIndex + 6) === '&nbsp;') {
+          if (e.which === 32) {
+            moveChar(6);
+            currentLetter.style.backgroundColor = 'yellow';
+          } else {
+            currentLetter.style.backgroundColor = 'red';
+          }
+        } else if (keyPressChar === codeChallenge[charIndex]) {
+          moveChar(1);
           currentLetter.style.backgroundColor = 'yellow';
         } else {
           currentLetter.style.backgroundColor = 'red';
