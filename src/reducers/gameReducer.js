@@ -9,6 +9,7 @@ for (let i = 0; i < test.length; i++) {
   cpuSpeed: 50 + Math.random() * 50,
   score: 0,
   gameActive: false,
+  user: null,
 };
 
 const gameReducer = (state = initialState, action) => {
@@ -16,12 +17,12 @@ const gameReducer = (state = initialState, action) => {
     case types.LOG_IN:
       return {
         ...state,
-        isLoggedIn: action.payload.isLoggedIn,
+        user: action.payload,
       };
     case types.SIGN_UP:
       return {
         ...state,
-        isLoggedIn: action.payload.isLoggedIn,
+        user: action.payload,
       };
     default:
       return state;
