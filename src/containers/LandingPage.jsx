@@ -12,7 +12,6 @@ const mapStateToProps = store => ({
 
 const LandingPage = ({ user }) => (
   <div>
-    {console.log(user)}
     <BrowserRouter>
       <Header />
       {!user ? (
