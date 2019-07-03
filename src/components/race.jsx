@@ -19,9 +19,10 @@ const PlayerLabel = styled.h4`
 `;
 
 const SpaceShip = styled.i`
+  margin-left: 75px;
   color: purple;
   position: relative;
-  z-index: 1
+  // z-index: 1
 `;
 
 const Race = ({ playerName }) => {

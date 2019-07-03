@@ -6,7 +6,7 @@ const Races = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: 1100px;
+  width: 1150px;
   border: 1px solid black;
 `;
 
