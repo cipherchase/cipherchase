@@ -6,7 +6,7 @@ import * as actions from '../actions/actionCreators';
 const mapStateToProps = store => (
   {
     codeChallenge: store.games.codeChallenge,
-    playerCharIndex: store.games.playerCharIndex,
+    charIndex: store.games.charIndex,
   }
 );
 
@@ -20,14 +20,21 @@ const Highlight = styled.span`
   background-color: yellow;
 `;
 
-const CodeContainer = ({ codeChallenge, playerCharIndex, moveCar }) => (
-  <div style={{ border: '1px solid black' }} onKeyPress={ e => console.log('hi') } tabIndex="0">
-    <Highlight id="highlight">{codeChallenge.substring(0, playerCharIndex + 1)}</Highlight>
-    <span>{codeChallenge.substring(playerCharIndex + 1)}</span>
-    <button
-      onClick={ () => moveCar() }>
-      Click me
-    </button>
+const CodeContainer = ({ codeChallenge, charIndex, moveCar }) => (
+  <div 
+    style={{ border: '1px solid black', width: '500px', height: '500px' }} 
+    tabIndex="0"
+    onKeyPress={ 
+      e => {
+        if (String.fromCharCode(e.which) === codeChallenge[charIndex + 1]) {
+          moveCar();
+        } 
+        
+      } 
+    }
+  >
+    <Highlight id="highlight">{codeChallenge.substring(0, charIndex + 1)}</Highlight>
+    <span>{codeChallenge.substring(charIndex + 1)}</span>
   </div>
 );
 

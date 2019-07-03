@@ -9,15 +9,14 @@ for (let i = 0; i < test.length; i++) {
   cpuSpeed: 50 + Math.random() * 50,
   score: 0,
   gameActive: false,
-  playerCharIndex: -1,
+  charIndex: -1,
 };
 
 const gameReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case types.MOVE_CAR:
-      console.log('Moving car');
-      return { ...state, playerCharIndex: state.playerCharIndex + 1 };
+      return { ...state, charIndex: state.charIndex + 1 };
 
     default:
       return state;
