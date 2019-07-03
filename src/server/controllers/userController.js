@@ -43,4 +43,12 @@ userController.verifyUser = (req, res, next) => {
   });
 };
 
+userController.getChallenge = (req, res, next) => {
+  client.query('SELECT * FROM codechallenges', (err, results) => {
+    res.set('Content-Type', 'text/plain');
+    res.send(results.rows[0].challenge);
+    next();
+  });
+};
+
 module.exports = userController;
