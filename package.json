@@ -2,10 +2,10 @@
   "name": "cipherchase",
   "version": "1.0.0",
   "description": "Test your typing skills with cipher chase",
-  "main": "index.js",
+  "main": "src/server/server.js",
   "scripts": {
     "test": "jest",
-    "dev": "webpack-dev-server --open",
+    "dev": "nodemon server/server.js & webpack-dev-server --open",
     "lint": "npx eslint '**/*.{tsx,ts,js,jsx}' --fix --quiet"
   },
   "repository": {
