@@ -24,10 +24,6 @@
     "url": "https://github.com/cipherchase/cipherchase/issues"
   },
   "homepage": "https://github.com/cipherchase/cipherchase#readme",
-  "jest": {
-    "globalSetup": "./jest-setup.js",
-    "globalTeardown": "./jest-teardown.js"
-  },
   "dependencies": {
     "pg": "^7.11.0",
     "react": "^16.8.6",
@@ -48,8 +44,6 @@
     "babel-preset-es2015": "^6.24.1",
     "dotenv": "^8.0.0",
     "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0",
