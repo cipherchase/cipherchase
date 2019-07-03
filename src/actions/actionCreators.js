@@ -10,7 +10,6 @@ import * as types from './actionTypes';
 
 */
 export const login = (username, password) => dispatch => {
-  // replace the url to login route
   fetch('http://localhost:3000/login', {
     method: 'POST',
     body: JSON.stringify({
@@ -23,7 +22,6 @@ export const login = (username, password) => dispatch => {
   })
     .then(response => response.json())
     .then(json => {
-      // simulate user authentication
       dispatch({
         type: types.LOG_IN,
         payload: json,
@@ -38,7 +36,6 @@ export const signup = (
   lastname,
   email,
 ) => dispatch => {
-  // replace the fetch url to signup route
   fetch('http://localhost:3000/signup', {
     method: 'POST',
     body: JSON.stringify({
