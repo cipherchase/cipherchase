@@ -12,11 +12,11 @@ const mapStateToProps = store => (
 
 const mapDispatchToProps = dispatch => (
   {
-    moveCar: () => dispatch(actions.moveCar()),
+    moveChar: () => dispatch(actions.moveChar()),
   }
 );
 
-const CodeContainer = ({ codeChallenge, charIndex, moveCar }) => {
+const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
 
   useEffect(() => {
     const correct = document.querySelector('#correct');
@@ -35,7 +35,7 @@ const CodeContainer = ({ codeChallenge, charIndex, moveCar }) => {
         const keyPressCode = String.fromCharCode(e.which);
         const currentLetter = document.querySelector('#currentLetter');
         if (keyPressCode === codeChallenge[charIndex]) {
-          moveCar();
+          moveChar();
           currentLetter.style.backgroundColor = 'yellow';
         } else {
           currentLetter.style.backgroundColor = 'red';

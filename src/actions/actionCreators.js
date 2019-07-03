@@ -10,6 +10,6 @@ import * as types from './actionTypes';
 */
 
 // eslint-disable-next-line import/prefer-default-export
-export const moveCar = () => ({
+export const moveChar = () => ({
   type: types.MOVE_CHAR,
 });
