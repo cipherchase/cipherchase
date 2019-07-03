@@ -6,7 +6,7 @@ const initialState = {
   score: 0,
   gameActive: false,
   charIndex: 0,
-  user: true,
+  user: false,
 };
 
 const gameReducer = (state = initialState, action) => {
