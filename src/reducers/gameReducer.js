@@ -9,7 +9,7 @@ for (let i = 0; i < test.length; i++) {
   cpuSpeed: 50 + Math.random() * 50,
   score: 0,
   gameActive: false,
-  charIndex: -1,
+  charIndex: 0,
 };
 
 const gameReducer = (state = initialState, action) => {

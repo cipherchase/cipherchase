@@ -26,15 +26,15 @@ const CodeContainer = ({ codeChallenge, charIndex, moveCar }) => (
     tabIndex="0"
     onKeyPress={ 
       e => {
-        if (String.fromCharCode(e.which) === codeChallenge[charIndex + 1]) {
+        if (String.fromCharCode(e.which) === codeChallenge[charIndex]) {
           moveCar();
         } 
         
       } 
     }
   >
-    <Highlight id="highlight">{codeChallenge.substring(0, charIndex + 1)}</Highlight>
-    <span>{codeChallenge.substring(charIndex + 1)}</span>
+    <Highlight id="highlight">{codeChallenge.substring(0, charIndex)}</Highlight>
+    <span>{codeChallenge.substring(charIndex)}</span>
   </div>
 );
 
