@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
-import styled from 'styled-components';
-
 import store from './store';
-
 import MainContainer from './containers/MainContainer.jsx';
 
+
 const App = () => (
-  <Provider>
+  <Provider store={store}>
     <MainContainer />
   </Provider>
 );
