@@ -30,14 +30,14 @@ module.exports = {
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, '/'),
     port: 8080,
     proxy: {
       '/api': 'http://localhost:3000',
       '/login': 'http://localhost:3000',
       '/signup': 'http://localhost:3000',
     },
-    publicPath: 'http://localhost:8080/',
+    publicPath: 'http://localhost:8080/dist',
     hot: false,
     historyApiFallback: true,
   },
