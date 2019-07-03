@@ -18,5 +18,5 @@ CREATE TABLE users(
 
  INSERT INTO codechallenges (challenge) 
  VALUES('for (let i = 0; i < cars.length; i+=1) { 
-  text += cars[i] + "<br>";
+  text += cars[i] + "paints";
   }');
