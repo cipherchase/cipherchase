@@ -4,8 +4,9 @@
   "description": "Test your typing skills with cipher chase",
   "main": "src/server/server.js",
   "scripts": {
-    "test": "jest",
+    "start": "NODE_ENV=production nodemon server/server.js",
     "dev": "nodemon server/server.js & webpack-dev-server --open",
+    "test": "jest",
     "lint": "npx eslint '**/*.{tsx,ts,js,jsx}' --fix --quiet"
   },
   "repository": {
