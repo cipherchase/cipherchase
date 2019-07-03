@@ -22,7 +22,7 @@ const SpaceShip = styled.i`
   margin-left: 75px;
   color: purple;
   position: relative;
-  // z-index: 1
+  z-index: 2
 `;
 
 const Race = ({ playerName }) => {
