@@ -25,7 +25,7 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
@@ -37,7 +37,7 @@ module.exports = {
       '/login': 'http://localhost:3000',
       '/signup': 'http://localhost:3000',
     },
-    publicPath: 'http://localhost:8080/build/',
+    publicPath: 'http://localhost:8080/dist',
     hot: false,
     historyApiFallback: true,
   },
