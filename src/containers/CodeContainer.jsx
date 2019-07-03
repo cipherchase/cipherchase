@@ -5,8 +5,11 @@ import * as actions from '../actions/actionCreators';
 
 const Wrapper = styled.div`
   border: 1px solid black;
-  width: 500px;
-  height: 500px;
+  width: 1150px;
+  height: 250px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 30px;
 `;
 
 const mapStateToProps = store => ({
@@ -21,6 +24,7 @@ const mapDispatchToProps = dispatch => ({
 const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
 
   const handleKeyPress = (e) => {
+    if (e.which === 32) e.preventDefault();
     const keyPressChar = String.fromCharCode(e.which);
     const currentLetter = document.querySelector('#currentLetter');
     currentLetter.style.backgroundColor = 'yellow';
