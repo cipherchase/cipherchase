@@ -21,7 +21,7 @@ const Highlight = styled.span`
 `;
 
 const CodeContainer = ({ codeChallenge, playerCharIndex, moveCar }) => (
-  <div>
+  <div style={{ border: '1px solid black' }} onKeyPress={ e => console.log('hi') } tabIndex="0">
     <Highlight id="highlight">{codeChallenge.substring(0, playerCharIndex + 1)}</Highlight>
     <span>{codeChallenge.substring(playerCharIndex + 1)}</span>
     <button
