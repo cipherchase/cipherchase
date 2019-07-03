@@ -3,18 +3,20 @@ import { connect } from 'react-redux';
 import { signup } from '../actions/actionCreators';
 
 const mapStateToProps = store => ({
-  games: store.games
+  games: store.games,
 });
 
 const mapDispatchToProps = dispatch => ({
   signIn: (username, password, firstname, lastname, email) => {
     dispatch(signup(username, password, firstname, lastname, email));
-  }
+  },
 });
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', password: '', firstname: '', lastname: '', email: '' };
+    this.state = {
+      username: '', password: '', firstname: '', lastname: '', email: '',
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -35,7 +37,7 @@ class SignupForm extends React.Component {
       this.state.password,
       this.state.firstname,
       this.state.lastname,
-      this.state.email
+      this.state.email,
     );
   }
 
@@ -90,5 +92,5 @@ class SignupForm extends React.Component {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(SignupForm);
