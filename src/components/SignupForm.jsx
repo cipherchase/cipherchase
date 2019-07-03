@@ -81,11 +81,11 @@ class SignupForm extends React.Component {
 
   handleChange(event) {
     const { name, value } = event.target;
-    if (name === 'username') this.setState({ username: event.target.value });
-    if (name === 'password') this.setState({ password: event.target.value });
-    if (name === 'firstname') this.setState({ firstname: event.target.value });
-    if (name === 'lastname') this.setState({ lastname: event.target.value });
-    if (name === 'email') this.setState({ email: event.target.value });
+    if (name === 'username') this.setState({ username: value });
+    if (name === 'password') this.setState({ password: value });
+    if (name === 'firstname') this.setState({ firstname: value });
+    if (name === 'lastname') this.setState({ lastname: value });
+    if (name === 'email') this.setState({ email: value });
   }
 
   handleSubmit(event) {
