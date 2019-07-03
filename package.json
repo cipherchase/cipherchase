@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon server/server.js & webpack-dev-server --open",
-    "lint": "npx eslint '**/*.{tsx,ts,js,jsx}' --fix --quiet"
+    "lint": "npx eslint '**/*.{tsx,ts,js,jsx}' --fix --quiet",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -25,13 +26,16 @@
   },
   "homepage": "https://github.com/cipherchase/cipherchase#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "enzyme": "^3.10.0",
     "jest": "^24.8.0",
     "pg": "^7.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
