@@ -25,13 +25,19 @@ userController.createUser = (req, res, next) => {
 
 userController.verifyUser = (req, res, next) => {
   const { username, password } = req.body;
-  client.query(`SELECT username, password from users WHERE username = ${username}`, (err, results) => {
-    if (err) res.status(500).json({ Error: err });
-    else {
-      console.log('from db', results.rows);
-      const dbUsername = results.rows.username;
-      const dbPassword = results.rows.password;
-      res.json({ user: dbUsername, pass: dbPassword });
+  client.query(`SELECT username, password from users WHERE username = '${username}';`, (err, results) => {
+    if (err) {
+      console.log('err', err);
+      res.status(500).json({ Error: err });
+    } else {
+      console.log('from db', results.rows.length);
+      if (results.rows.length > 0) {
+        const dbUsername = results.rows[0].username;
+        const dbPassword = results.rows[0].password;
+        console.log(password === dbPassword);
+        if (password === dbPassword) res.json({ user: dbUsername, login: true });
+        else res.json({ user: dbUsername, login: false });
+      }
     }
 
   });
