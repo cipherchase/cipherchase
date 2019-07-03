@@ -8,9 +8,8 @@ import * as types from './actionTypes';
   })
 
 */
-export const login = (username, password) => (dispatch) => {
+export const login = (username, password) => dispatch => {
   // replace the url to login route
-  // console.log(username, password);
   fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     body: JSON.stringify({
@@ -22,15 +21,23 @@ export const login = (username, password) => (dispatch) => {
     },
   })
     .then(response => response.json())
-    .then((json) => {
+    .then(json => {
       // simulate user authentication
       const isAuthenticated = json.email === 'davidkim@email.com';
-      dispatch({ type: types.SIGN_UP, payload: { isLoggedIn: isAuthenticated } });
+      dispatch({
+        type: types.SIGN_UP,
+        payload: { isLoggedIn: isAuthenticated },
+      });
     });
 };
 
-export const signup = (username, password, firstname, lastname, email) => (dispatch) => {
-  // console.log(username, password, firstname, lastname, email);
+export const signup = (
+  username,
+  password,
+  firstname,
+  lastname,
+  email,
+) => dispatch => {
   // replace the fetch url to signup route
   fetch('https://jsonplaceholder.typicode.com/users', {
     method: 'POST',
@@ -43,9 +50,12 @@ export const signup = (username, password, firstname, lastname, email) => (dispa
     },
   })
     .then(response => response.json())
-    .then((json) => {
+    .then(json => {
       // simulate user authentication
       const isAuthenticated = json.email === 'davidkim@email.com';
-      dispatch({ type: types.SIGN_UP, payload: { isLoggedIn: isAuthenticated } });
+      dispatch({
+        type: types.SIGN_UP,
+        payload: { isLoggedIn: isAuthenticated },
+      });
     });
 };
