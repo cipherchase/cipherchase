@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 import * as types from './actionTypes';
 
 /* example of an action creator
@@ -10,11 +11,11 @@ import * as types from './actionTypes';
 */
 export const login = (username, password) => dispatch => {
   // replace the url to login route
-  fetch('https://jsonplaceholder.typicode.com/posts', {
+  fetch('http://localhost:3000/login', {
     method: 'POST',
     body: JSON.stringify({
-      username: 'davidkim',
-      email: 'davidkim@email.com',
+      username,
+      password,
     }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
@@ -23,10 +24,9 @@ export const login = (username, password) => dispatch => {
     .then(response => response.json())
     .then(json => {
       // simulate user authentication
-      const isAuthenticated = json.email === 'davidkim@email.com';
       dispatch({
-        type: types.SIGN_UP,
-        payload: { isLoggedIn: isAuthenticated },
+        type: types.LOG_IN,
+        payload: json,
       });
     });
 };
@@ -39,11 +39,14 @@ export const signup = (
   email,
 ) => dispatch => {
   // replace the fetch url to signup route
-  fetch('https://jsonplaceholder.typicode.com/users', {
+  fetch('http://localhost:3000/signup', {
     method: 'POST',
     body: JSON.stringify({
-      username: 'davidkim',
-      email: 'davidkim@email.com',
+      username,
+      password,
+      firstname,
+      lastname,
+      email,
     }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
@@ -51,11 +54,9 @@ export const signup = (
   })
     .then(response => response.json())
     .then(json => {
-      // simulate user authentication
-      const isAuthenticated = json.email === 'davidkim@email.com';
       dispatch({
         type: types.SIGN_UP,
-        payload: { isLoggedIn: isAuthenticated },
+        payload: json,
       });
     });
 };
