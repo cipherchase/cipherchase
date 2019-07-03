@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { login } from '../actions/actionCreators';
 
 const mapStateToProps = store => ({
-  games: store.games
+  games: store.games,
 });
 
 const mapDispatchToProps = dispatch => ({
   signIn: (username, password) => {
     dispatch(login(username, password));
-  }
+  },
 });
 class LoginForm extends React.Component {
   constructor(props) {
@@ -59,5 +59,5 @@ class LoginForm extends React.Component {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(LoginForm);
