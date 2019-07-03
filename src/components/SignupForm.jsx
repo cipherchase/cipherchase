@@ -7,41 +7,80 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  signIn: (username, password) => {
-    dispatch(signup(username, password));
+  signIn: (username, password, firstname, lastname, email) => {
+    dispatch(signup(username, password, firstname, lastname, email));
   }
 });
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', password: '' };
-    this.handleChangeUsername = this.handleChangeUsername.bind(this);
-    this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.state = { username: '', password: '', firstname: '', lastname: '', email: '' };
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChangeUsername(event) {
-    this.setState({ username: event.target.value });
-  }
-  handleChangePassword(event) {
-    this.setState({ password: event.target.value });
+  handleChange(event) {
+    const { name, value } = event.target;
+    if (name === 'username') this.setState({ username: event.target.value });
+    if (name === 'password') this.setState({ password: event.target.value });
+    if (name === 'firstname') this.setState({ firstname: event.target.value });
+    if (name === 'lastname') this.setState({ lastname: event.target.value });
+    if (name === 'email') this.setState({ email: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.signIn(this.state.username, this.state.password);
+    this.props.signIn(
+      this.state.username,
+      this.state.password,
+      this.state.firstname,
+      this.state.lastname,
+      this.state.email
+    );
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
-          <input type="text" value={this.state.username} onChange={this.handleChangeUsername} />
+          Username:
+          <input
+            name="username"
+            type="text"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
         </label>
         <label>
           Password:
-          <input type="text" value={this.state.password} onChange={this.handleChangePassword} />
+          <input
+            name="password"
+            type="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+        </label>
+        <label>
+          First Name:
+          <input
+            name="firstname"
+            type="text"
+            value={this.state.firstname}
+            onChange={this.handleChange}
+          />
+        </label>
+        <label>
+          Last Name:
+          <input
+            name="lastname"
+            type="text"
+            value={this.state.lastname}
+            onChange={this.handleChange}
+          />
+        </label>
+        <label>
+          Email:
+          <input name="email" type="email" value={this.state.email} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
