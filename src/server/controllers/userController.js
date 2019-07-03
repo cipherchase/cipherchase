@@ -26,7 +26,6 @@ userController.verifyUser = (req, res, next) => {
   const { username, password } = req.body;
   client.query(`SELECT username, password from users WHERE username = '${username}';`, (err, results) => {
     if (err) {
-      console.log('err', err);
       res.status(500).json({ Error: err });
     } else {
       console.log('from db', results.rows.length);
@@ -36,7 +35,8 @@ userController.verifyUser = (req, res, next) => {
         console.log(password === dbPassword);
         if (password === dbPassword) res.json({ user: dbUsername, login: true });
         else res.json({ user: dbUsername, login: false });
-      }
+
+      } else res.json({ user: username, login: false });
     }
 
   });
