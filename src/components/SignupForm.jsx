@@ -117,22 +117,22 @@ class SignupForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <div className="top-row">
                 <div className="field-wrap">
-                  <input name="firstname" placeholder="First Name" type="text" required value={this.state.firstname} onChange={this.handleChange} />
+                  <input name="firstname" placeholder="First Name" type="text" required value={this.state.firstname} onChange={this.handleChange}/>
                 </div>
                 <div className="field-wrap">
-                  <input name="lastname" placeholder="Last Name" type="text" required value={this.state.lastname} onChange={this.handleChange} />
+                  <input name="lastname" placeholder="Last Name" type="text" required value={this.state.lastname} onChange={this.handleChange}/>
                 </div>
               </div>
               <div className="field-wrap">
-                <input name="email" placeholder="Email Address" type="email" required value={this.state.email}  onChange={this.handleChange}/>
+                <input name="email" placeholder="Email Address" type="email" required value={this.state.email} onChange={this.handleChange}/>
               </div>
               <div className="field-wrap">
-                <input name="username" placeholder="User Name" type="text" required value={this.state.username} onChange={this.handleChange} />
+                <input name="username" placeholder="User Name" type="text" required value={this.state.username} onChange={this.handleChange}/>
               </div>
               <div className="field-wrap">
-                <input name="password" placeholder="Set A Password" type="password" required value={this.state.password} onChange={this.handleChange} />
+                <input name="password" placeholder="Set A Password" type="password" required value={this.state.password} onChange={this.handleChange}/>
               </div>
-              <input className="button button-block" type="submit" value="Sign Up" />
+              <input className="button button-block" type="submit" value="Sign Up"/>
             </form>
           </div>
         </div>
