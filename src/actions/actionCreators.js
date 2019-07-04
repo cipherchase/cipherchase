@@ -20,6 +20,11 @@ export const moveCPU = () => ({
   payload: { },
 });
 
+export const setIntervalID = intervalID => ({
+  type: types.SET_INTERVAL_ID,
+  payload: { intervalID },
+});
+
 export const login = (username, password) => dispatch => {
   fetch('http://localhost:3000/login', {
     method: 'POST',

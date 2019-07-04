@@ -8,6 +8,7 @@ const initialState = {
   playerSpeed: 800 / 11,
   // cpuSpeed: Math.random() * 5 + 2,
   cpuSpeed: 10,
+  intervalID: null,
   wins: 0,
   winner: '',
   gameActive: true,
@@ -30,7 +31,6 @@ const gameReducer = (state = initialState, action) => {
       if (playerPosition >= 800) {
         winner = 'Player';
         gameActive = false;
-        console.log(winner);
       }
       return {
         ...state,
@@ -46,7 +46,6 @@ const gameReducer = (state = initialState, action) => {
       if (cpuPosition >= 800) {
         winner = 'CPU';
         gameActive = false;
-        console.log(winner);
       }
       return {
         ...state,
@@ -54,6 +53,9 @@ const gameReducer = (state = initialState, action) => {
         winner,
         gameActive,
       };
+
+    case types.SET_INTERVAL_ID:
+      return { ...state, intervalID: action.payload.intervalID };
 
     case types.LOG_IN:
       return { ...state, user: action.payload };

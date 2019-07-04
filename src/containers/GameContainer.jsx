@@ -20,12 +20,14 @@ const mapStateToProps = store => ({
   playerPosition: store.games.playerPosition,
   cpuPosition: store.games.cpuPosition,
   gameActive: store.games.gameActive,
+  intervalID: store.games.intervalID,
 });
 
 
 const mapDispatchToProps = dispatch => ({
   moveChar: num => dispatch(actions.moveChar(num)),
   moveCPU: () => dispatch(actions.moveCPU()),
+  setIntervalID: intervalID => dispatch(actions.setIntervalID(intervalID)),
 });
 
 const GameContainer = ({
@@ -33,13 +35,20 @@ const GameContainer = ({
   charIndex,
   moveChar,
   moveCPU,
+  setIntervalID,
+  intervalID,
   playerPosition,
   cpuPosition,
   gameActive,
 }) => {
+
   useEffect(() => {
-    setInterval(moveCPU, 100);
+    const id = setInterval(moveCPU, 100);
+    setIntervalID(id);
   }, []);
+
+  if (!gameActive) clearInterval(intervalID);
+
   return (
     <div>
       <Races>

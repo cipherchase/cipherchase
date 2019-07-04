@@ -10,9 +10,13 @@ const Wrapper = styled.div`
   font-size: 30px;
 `;
 
-const CodeContainer = ({ codeChallenge, charIndex, moveChar, gameActive }) => {
+const CodeContainer = ({
+  codeChallenge,
+  charIndex,
+  moveChar,
+  gameActive,
+}) => {
 
-  console.log('game active ', gameActive);
   const handleKeyPress = (e) => {
     if (e.which === 32) e.preventDefault();
     const keyPressChar = String.fromCharCode(e.which);
