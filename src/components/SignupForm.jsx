@@ -119,13 +119,12 @@ class SignupForm extends React.Component {
                 <div className="field-wrap">
                   <input name="firstname" placeholder="First Name" type="text" required value={this.state.firstname} onChange={this.handleChange} />
                 </div>
-
                 <div className="field-wrap">
                   <input name="lastname" placeholder="Last Name" type="text" required value={this.state.lastname} onChange={this.handleChange} />
                 </div>
               </div>
               <div className="field-wrap">
-                <input name="email" placeholder="Email Address" type="email" required />
+                <input name="email" placeholder="Email Address" type="email" required value={this.state.email}  onChange={this.handleChange}/>
               </div>
               <div className="field-wrap">
                 <input name="username" placeholder="User Name" type="text" required value={this.state.username} onChange={this.handleChange} />
