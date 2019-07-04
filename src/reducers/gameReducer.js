@@ -27,19 +27,17 @@ const gameReducer = (state = initialState, action) => {
   let codeChallenge;
 
   switch (action.type) {
-    case types.GET_CHALLENGE:
+    case types.PLAY_GAME:
       codeChallenge = action.payload.challenge;
-      playerSpeed = 800 / action.payload.length;
-      console.log(playerSpeed);
-      return { ...state, codeChallenge, playerSpeed };
-
-    case types.RESET_GAME:
+      playerSpeed = 800 / codeChallenge.length;
       return {
         ...initialState,
         intervalID: state.intervalID,
         wins: state.wins,
         gameActive: true,
         user: true,
+        codeChallenge,
+        playerSpeed
       };
 
     case types.MOVE_CHAR:
@@ -47,8 +45,7 @@ const gameReducer = (state = initialState, action) => {
       playerPosition = state.playerPosition + state.playerSpeed * action.payload.num;
       gameActive = true;
       wins = state.wins;
-      console.log(playerPosition)
-      if (playerPosition >= 799) {
+      if (playerPosition >= (800 - 1)) {
         winner = 'Player Wins';
         wins += 1;
         gameActive = false;
@@ -65,7 +62,7 @@ const gameReducer = (state = initialState, action) => {
     case types.MOVE_CPU:
       cpuPosition = state.cpuPosition + state.cpuSpeed;
       gameActive = true;
-      if (cpuPosition >= 799) {
+      if (cpuPosition >= (800 - 1)) {
         winner = 'CPU Wins!';
         gameActive = false;
       }

@@ -24,19 +24,15 @@ export const setIntervalID = intervalID => ({
   payload: { intervalID },
 });
 
-export const resetGame = () => ({
-  type: types.RESET_GAME,
-});
-
-export const getChallenge = () => dispatch => {
-  console.log('getchallenge invoked');
+export const playGame = () => dispatch => {
+  console.log('playGame invoked');
   fetch('http://localhost:3000/getChallenge')
     .then(res => res.json())
     .then(challenge => {
       console.log('challenge received is ', challenge);
       const length = challenge.length;
       dispatch({
-        type: types.GET_CHALLENGE,
+        type: types.PLAY_GAME,
         payload: { challenge, length },
       });
     });

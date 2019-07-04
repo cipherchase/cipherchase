@@ -30,8 +30,7 @@ const mapDispatchToProps = dispatch => ({
   moveChar: num => dispatch(actions.moveChar(num)),
   moveCPU: () => dispatch(actions.moveCPU()),
   setIntervalID: intervalID => dispatch(actions.setIntervalID(intervalID)),
-  resetGame: () => dispatch(actions.resetGame()),
-  getChallenge: () => dispatch(actions.getChallenge()),
+  playGame: () => dispatch(actions.playGame()),
 });
 
 const GameContainer = ({
@@ -40,8 +39,7 @@ const GameContainer = ({
   moveChar,
   moveCPU,
   setIntervalID,
-  resetGame,
-  getChallenge,
+  playGame,
   intervalID,
   playerPosition,
   cpuPosition,
@@ -73,8 +71,7 @@ const GameContainer = ({
         moveChar={moveChar}
         gameActive={gameActive}
       />
-      <button onClick={resetGame}>Reset</button>
-      <button onClick={getChallenge}>Play</button>
+      <button onClick={playGame}>Play</button>
       <h2>{!gameActive && `${winner}`}</h2>
     </div>
   );

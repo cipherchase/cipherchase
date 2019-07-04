@@ -3,8 +3,7 @@
 export const MOVE_CHAR = 'MOVE_CHAR';
 export const MOVE_CPU = 'MOVE_CPU';
 export const SET_INTERVAL_ID = 'SET_INTERVAL_ID';
-export const RESET_GAME = 'RESET_GAME';
-export const GET_CHALLENGE = 'GET_CHALLENGE';
+export const PLAY_GAME = 'PLAY_GAME';
 
 export const LOG_IN = 'LOG_IN';
 export const SIGN_UP = 'SIGN_UP';
