@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import * as actions from '../actions/actionCreators';
 
 const Wrapper = styled.div`
   border: 1px solid black;
@@ -12,16 +10,12 @@ const Wrapper = styled.div`
   font-size: 30px;
 `;
 
-const mapStateToProps = store => ({
-  codeChallenge: store.games.codeChallenge,
-  charIndex: store.games.charIndex,
-});
-
-const mapDispatchToProps = dispatch => ({
-  moveChar: num => dispatch(actions.moveChar(num)),
-});
-
-const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
+const CodeContainer = ({
+  codeChallenge,
+  charIndex,
+  movePlayer,
+  gameActive,
+}) => {
 
   const handleKeyPress = (e) => {
     if (e.which === 32) e.preventDefault();
@@ -29,16 +23,16 @@ const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
     const currentLetter = document.querySelector('#currentLetter');
     currentLetter.style.backgroundColor = 'yellow';
 
-    if (codeChallenge.substring(charIndex, charIndex + 5) === '<br/>' && e.which === 13) moveChar(5); // Enter
-    else if (codeChallenge.substring(charIndex, charIndex + 6) === '&nbsp;' && e.which === 32) moveChar(6); // Space
-    else if (keyPressChar === codeChallenge[charIndex]) moveChar(1); // Correct char
+    if (codeChallenge.substring(charIndex, charIndex + 5) === '<br/>' && e.which === 13) movePlayer(5); // Enter
+    else if (codeChallenge.substring(charIndex, charIndex + 6) === '&nbsp;' && e.which === 32) movePlayer(6); // Space
+    else if (keyPressChar === codeChallenge[charIndex]) movePlayer(1); // Correct char
     else currentLetter.style.backgroundColor = 'red';
   };
 
   const handleTabPress = (e) => {
     if (e.keyCode === 9) {
       e.preventDefault();
-      if (codeChallenge.substring(charIndex, charIndex + 12) === '&nbsp;&nbsp;') moveChar(12); // Tab
+      if (codeChallenge.substring(charIndex, charIndex + 12) === '&nbsp;&nbsp;') movePlayer(12); // Tab
     }
   };
 
@@ -66,8 +60,12 @@ const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
   return (
     <Wrapper
       tabIndex={-1}
-      onKeyPress={handleKeyPress}
-      onKeyDown={handleTabPress}
+      onKeyPress={(e) => {
+        if (gameActive) handleKeyPress(e);
+      }}
+      onKeyDown={(e) => {
+        if (gameActive) handleTabPress(e);
+      }}
     >
       <span id='correct' style={{ color: 'white', backgroundColor: 'green' }} />
       <span id='currentLetter' style={{ backgroundColor: 'yellow' }} />
@@ -76,4 +74,4 @@ const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CodeContainer);
+export default CodeContainer;

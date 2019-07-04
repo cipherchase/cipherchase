@@ -1,23 +1,23 @@
 DROP TABLE IF EXISTS users;
 
-CREATE TABLE users(
-   id serial primary key, 
-   username varchar not null unique,
-   password varchar,
-   firstname varchar,
-   email text not null unique,
-   lastname varchar,
-   score int,
-   sequence integer
- );
+CREATE TABLE users (
+  id serial primary key, 
+  username varchar not null unique,
+  password varchar,
+  firstname varchar,
+  email text not null unique,
+  lastname varchar,
+  score int,
+  sequence integer
+);
 
- CREATE TABLE codechallenges(
-   id serial primary key,
-   challenge text
- );
+CREATE TABLE codechallenges (
+  id serial primary key,
+  challenge text
+);
 
+INSERT INTO codechallenges (challenge) 
+VALUES('let counter = 0;<br/>for (let i = 0; i < array.length; i++) {<br/>&nbsp;&nbsp;counter += 1;<br/>}');
 
- INSERT INTO codechallenges (challenge) 
- VALUES('for (let i = 0; i < cars.length; i+=1) { 
-  text += cars[i] + "paints";
-  }');
+INSERT INTO codechallenges (challenge) 
+VALUES('function squareNum(num){<br/>&nbsp;&nbsp;return num*num;<br/>};');

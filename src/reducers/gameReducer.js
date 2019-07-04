@@ -1,9 +1,14 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
-  codeChallenge: 'let counter = 0;<br/>for (let i = 0; i < test.length; i++) {<br/>&nbsp;&nbsp;counter += 1;<br/>}',
-  cpuSpeed: 50 + Math.random() * 50,
-  score: 0,
+  codeChallenge: '',
+  playerPosition: 0,
+  cpuPosition: 0,
+  playerSpeed: 0,
+  cpuSpeed: Math.random() * 2 + 2,
+  intervalID: null,
+  wins: 0,
+  winner: 'Play Now!',
   gameActive: false,
   charIndex: 0,
   user: false,
@@ -11,11 +16,63 @@ const initialState = {
 
 const gameReducer = (state = initialState, action) => {
   let charIndex;
+  let playerSpeed;
+  let playerPosition;
+  let cpuPosition;
+  let winner;
+  let gameActive;
+  let newWins;
+  let codeChallenge;
 
   switch (action.type) {
-    case types.MOVE_CHAR:
+    case types.PLAY_GAME:
+      codeChallenge = action.payload.challenge;
+      playerSpeed = 800 / codeChallenge.length;
+      return {
+        ...initialState,
+        intervalID: state.intervalID,
+        wins: state.wins,
+        gameActive: true,
+        user: true,
+        codeChallenge,
+        playerSpeed,
+      };
+
+    case types.MOVE_PLAYER:
       charIndex = state.charIndex + action.payload.num;
-      return { ...state, charIndex };
+      playerPosition = state.playerPosition + state.playerSpeed * action.payload.num;
+      gameActive = true;
+      newWins = state.wins;
+      if (playerPosition >= (800 - 1)) {
+        winner = 'Player Wins';
+        newWins += 1;
+        gameActive = false;
+      }
+      return {
+        ...state,
+        charIndex,
+        playerPosition,
+        winner,
+        gameActive,
+        wins: newWins,
+      };
+
+    case types.MOVE_CPU:
+      cpuPosition = state.cpuPosition + state.cpuSpeed;
+      gameActive = true;
+      if (cpuPosition >= (800 - 1)) {
+        winner = 'CPU Wins!';
+        gameActive = false;
+      }
+      return {
+        ...state,
+        cpuPosition,
+        winner,
+        gameActive,
+      };
+
+    case types.SET_INTERVAL_ID:
+      return { ...state, intervalID: action.payload.intervalID };
 
     case types.LOG_IN:
       return { ...state, user: action.payload };
@@ -24,6 +81,7 @@ const gameReducer = (state = initialState, action) => {
       return { ...state, user: action.payload };
 
     default:
+
       return state;
   }
 };
