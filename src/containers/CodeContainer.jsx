@@ -23,10 +23,17 @@ const CodeContainer = ({
     const currentLetter = document.querySelector('#currentLetter');
     currentLetter.style.backgroundColor = 'yellow';
 
-    if (codeChallenge.substring(charIndex, charIndex + 5) === '<br/>' && e.which === 13) movePlayer(5); // Enter
-    else if (codeChallenge.substring(charIndex, charIndex + 6) === '&nbsp;' && e.which === 32) movePlayer(6); // Space
-    else if (keyPressChar === codeChallenge[charIndex]) movePlayer(1); // Correct char
-    else currentLetter.style.backgroundColor = 'red';
+    if (codeChallenge.substring(charIndex, charIndex + 5) === '<br/>' && e.which === 13) {
+      movePlayer(5); // Enter
+    } else if (codeChallenge.substring(charIndex, charIndex + 6) === '&nbsp;') {
+      if (codeChallenge.substring(charIndex, charIndex + 12) !== '&nbsp;&nbsp;' && e.which === 32) {
+        movePlayer(6); // Space
+      }
+    } else if (keyPressChar === codeChallenge[charIndex]) {
+      movePlayer(1); // Correct char
+    } else {
+      currentLetter.style.backgroundColor = 'red';
+    }
   };
 
   const handleTabPress = (e) => {
