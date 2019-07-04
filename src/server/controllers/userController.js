@@ -47,9 +47,14 @@ userController.getChallenge = (req, res, next) => {
   });
 };
 
-userController.postScore = (req, res, next) => {
+userController.updateScore = (req, res, next) => {
+  const { username, score } = req.body;
+  const sql = `UPDATE users SET score = ${score} WHERE username = '${username}';`;
+  client.query(sql)
+    .then(result => console.log('Result are', result));
   res.set('Content-Type', 'application/json');
   res.send(JSON.stringify('Hello'));
+  next();
 };
 
 module.exports = userController;
