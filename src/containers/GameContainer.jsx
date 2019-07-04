@@ -28,6 +28,7 @@ const mapDispatchToProps = dispatch => ({
   moveChar: num => dispatch(actions.moveChar(num)),
   moveCPU: () => dispatch(actions.moveCPU()),
   setIntervalID: intervalID => dispatch(actions.setIntervalID(intervalID)),
+  resetGame: () => dispatch(actions.resetGame()),
 });
 
 const GameContainer = ({
@@ -36,6 +37,7 @@ const GameContainer = ({
   moveChar,
   moveCPU,
   setIntervalID,
+  resetGame,
   intervalID,
   playerPosition,
   cpuPosition,
@@ -45,9 +47,12 @@ const GameContainer = ({
   useEffect(() => {
     const id = setInterval(moveCPU, 100);
     setIntervalID(id);
-  }, []);
+  }, [gameActive]);
 
-  if (!gameActive) clearInterval(intervalID);
+  if (!gameActive) {
+    clearInterval(intervalID);
+    setIntervalID(null);
+  }
 
   return (
     <div>
@@ -61,6 +66,7 @@ const GameContainer = ({
         moveChar={moveChar}
         gameActive={gameActive}
       />
+      <button onClick={resetGame}>Reset</button>
     </div>
   );
 };

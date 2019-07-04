@@ -24,6 +24,15 @@ const gameReducer = (state = initialState, action) => {
   let gameActive;
 
   switch (action.type) {
+    case types.RESET_GAME:
+      // Clear original intervalID if it exists
+      return {
+        ...initialState,
+        user: true,
+        intervalID: state.intervalID,
+        gameActive: true,
+      };
+
     case types.MOVE_CHAR:
       charIndex = state.charIndex + action.payload.num;
       playerPosition = state.playerPosition + state.playerSpeed * action.payload.num;
