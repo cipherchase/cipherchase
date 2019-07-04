@@ -34,9 +34,10 @@ export const getChallenge = () => dispatch => {
     .then(res => res.json())
     .then(challenge => {
       console.log('challenge received is ', challenge);
+      const length = challenge.length;
       dispatch({
         type: types.GET_CHALLENGE,
-        payload: { challenge },
+        payload: { challenge, length },
       });
     });
 };

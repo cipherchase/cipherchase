@@ -75,7 +75,7 @@ const GameContainer = ({
       />
       <button onClick={resetGame}>Reset</button>
       <button onClick={getChallenge}>Play</button>
-      <h1>{!gameActive && `${winner} wins!`}</h1>
+      <h2>{!gameActive && `${winner}`}</h2>
     </div>
   );
 };
