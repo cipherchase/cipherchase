@@ -28,6 +28,19 @@ export const resetGame = () => ({
   type: types.RESET_GAME,
 });
 
+export const getChallenge = () => dispatch => {
+  console.log('getchallenge invoked');
+  fetch('http://localhost:3000/getChallenge')
+    .then(res => res.json())
+    .then(challenge => {
+      console.log('challenge received is ', challenge);
+      dispatch({
+        type: types.GET_CHALLENGE,
+        payload: { challenge },
+      });
+    });
+};
+
 export const login = (username, password) => dispatch => {
   fetch('http://localhost:3000/login', {
     method: 'POST',

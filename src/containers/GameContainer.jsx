@@ -21,6 +21,8 @@ const mapStateToProps = store => ({
   cpuPosition: store.games.cpuPosition,
   gameActive: store.games.gameActive,
   intervalID: store.games.intervalID,
+  winner: store.games.winner,
+  wins: store.games.wins,
 });
 
 
@@ -29,6 +31,7 @@ const mapDispatchToProps = dispatch => ({
   moveCPU: () => dispatch(actions.moveCPU()),
   setIntervalID: intervalID => dispatch(actions.setIntervalID(intervalID)),
   resetGame: () => dispatch(actions.resetGame()),
+  getChallenge: () => dispatch(actions.getChallenge()),
 });
 
 const GameContainer = ({
@@ -38,10 +41,13 @@ const GameContainer = ({
   moveCPU,
   setIntervalID,
   resetGame,
+  getChallenge,
   intervalID,
   playerPosition,
   cpuPosition,
   gameActive,
+  winner,
+  wins,
 }) => {
 
   useEffect(() => {
@@ -56,6 +62,7 @@ const GameContainer = ({
 
   return (
     <div>
+      <h1>Score: {wins}</h1>
       <Races>
         <Race playerName="CPU" position={cpuPosition} />
         <Race playerName="P1" position={playerPosition} />
@@ -67,6 +74,8 @@ const GameContainer = ({
         gameActive={gameActive}
       />
       <button onClick={resetGame}>Reset</button>
+      <button onClick={getChallenge}>Play</button>
+      <h1>{!gameActive && `${winner} wins!`}</h1>
     </div>
   );
 };
