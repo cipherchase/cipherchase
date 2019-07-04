@@ -7,6 +7,7 @@ const initialState = {
   cpuPosition: 0,
   playerSpeed: 0,
   cpuSpeed: Math.random() * 2 + 2,
+  cpuSpeed: 1,
   intervalID: null,
   wins: 100,
   winner: 'Play Now!',
@@ -29,6 +30,7 @@ const gameReducer = (state = initialState, action) => {
     case types.GET_CHALLENGE:
       codeChallenge = action.payload.challenge;
       playerSpeed = 800 / action.payload.length;
+      console.log(playerSpeed);
       return { ...state, codeChallenge, playerSpeed };
 
     case types.RESET_GAME:
@@ -45,7 +47,8 @@ const gameReducer = (state = initialState, action) => {
       playerPosition = state.playerPosition + state.playerSpeed * action.payload.num;
       gameActive = true;
       wins = state.wins;
-      if (playerPosition >= 800) {
+      console.log(playerPosition)
+      if (playerPosition >= 799) {
         winner = 'Player Wins';
         wins += 1;
         gameActive = false;
@@ -62,7 +65,7 @@ const gameReducer = (state = initialState, action) => {
     case types.MOVE_CPU:
       cpuPosition = state.cpuPosition + state.cpuSpeed;
       gameActive = true;
-      if (cpuPosition >= 800) {
+      if (cpuPosition >= 799) {
         winner = 'CPU Wins!';
         gameActive = false;
       }
