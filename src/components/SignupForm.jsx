@@ -117,7 +117,7 @@ class SignupForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <div className="top-row">
                 <div className="field-wrap">
-                  <input name="firstname" placeholder="First Name" type="text" required />
+                  <input name="firstname" placeholder="First Name" type="text" required value={this.state.firstname} onChange={this.handleChange} />
                 </div>
 
                 <div className="field-wrap">
@@ -131,7 +131,7 @@ class SignupForm extends React.Component {
                 <input name="username" placeholder="User Name" type="text" required value={this.state.username} onChange={this.handleChange} />
               </div>
               <div className="field-wrap">
-                <input name="password" placeholder="Set A Password" type="password" required value={this.state.password} />
+                <input name="password" placeholder="Set A Password" type="password" required value={this.state.password} onChange={this.handleChange} />
               </div>
               <input className="button button-block" type="submit" value="Sign Up" />
             </form>
