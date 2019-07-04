@@ -28,6 +28,7 @@
   "homepage": "https://github.com/cipherchase/cipherchase#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "css-loader": "^3.0.0",
     "pg": "^7.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -36,6 +37,7 @@
     "redux": "^4.0.1",
     "redux-form": "^8.2.4",
     "redux-thunk": "^2.3.0",
+    "style-loader": "^0.23.1",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
