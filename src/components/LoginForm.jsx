@@ -117,40 +117,6 @@ class LoginForm extends React.Component {
           </div>
         </div>
       </div>
-
-      // <div style={box}>
-      //   <h4 style={titleStyle}>
-      //     <p>Welcome back</p>
-      //     <p>Please login</p>
-      //   </h4>
-      //   <form style={forms} onSubmit={this.handleSubmit}>
-      //     <div>
-      //       <label>
-      //         Username:
-      //         <input
-      //           name="username"
-      //           type="text"
-      //           style={inputStyle}
-      //           value={this.state.username}
-      //           onChange={this.handleChange}
-      //         />
-      //       </label>
-      //     </div>
-      //     <div>
-      //       <label>
-      //         Password:
-      //         <input
-      //           name="password"
-      //           type="password"
-      //           style={inputStyle}
-      //           value={this.state.password}
-      //           onChange={this.handleChange}
-      //         />
-      //       </label>
-      //     </div>
-      //     <input style={submitStyle} type="submit" value="Submit" />
-      //   </form>
-      // </div>
     );
   }
 }
