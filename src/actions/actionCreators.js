@@ -28,10 +28,7 @@ export const playGame = () => dispatch => {
   fetch('http://localhost:3000/getChallenge')
     .then(res => res.json())
     .then(challenge => {
-      dispatch({
-        type: types.PLAY_GAME,
-        payload: { challenge },
-      });
+      dispatch({ type: types.PLAY_GAME, payload: { challenge } });
     });
 };
 
@@ -43,7 +40,7 @@ export const login = (username, password) => dispatch => {
   })
     .then(response => response.json())
     .then(json => {
-      dispatch({ type: types.LOG_IN, payload: json, });
+      dispatch({ type: types.LOG_IN, payload: json });
     });
 };
 
@@ -55,6 +52,6 @@ export const signup = (username, password, firstname, lastname, email) => dispat
   })
     .then(response => response.json())
     .then(json => {
-      dispatch({ type: types.SIGN_UP, payload: json, });
+      dispatch({ type: types.SIGN_UP, payload: json });
     });
 };
