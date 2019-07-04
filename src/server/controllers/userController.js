@@ -47,4 +47,9 @@ userController.getChallenge = (req, res, next) => {
   });
 };
 
+userController.postScore = (req, res, next) => {
+  res.set('Content-Type', 'application/json');
+  res.send(JSON.stringify('Hello'));
+};
+
 module.exports = userController;
