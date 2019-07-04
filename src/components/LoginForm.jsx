@@ -90,10 +90,10 @@ class LoginForm extends React.Component {
       <div className="form">
         <ul className="tab-group">
           <li className="tab">
-            <a href="#signup">Sign Up</a>
+            <a href="/join">Sign Up</a>
           </li>
           <li className="tab active">
-            <a href="#login">Log In</a>
+            <a href="/auth">Log In</a>
           </li>
         </ul>
 

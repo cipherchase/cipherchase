@@ -9,6 +9,12 @@ import * as types from './actionTypes';
   })
 
 */
+
+export const moveChar = num => ({
+  type: types.MOVE_CHAR,
+  payload: { num },
+});
+
 export const login = (username, password) => dispatch => {
   fetch('http://localhost:3000/login', {
     method: 'POST',

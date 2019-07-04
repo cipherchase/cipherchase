@@ -31,7 +31,7 @@ const Race = ({ playerName }) => {
   const increment = 50;
   return (
     <Wrapper>
-      <SpaceShip id={playerName} className="fas fa-space-shuttle fa-4x" />
+      <SpaceShip id={playerName} className="fas fa-shipping-fast fa-4x" />
       <RaceTrack />
       <PlayerLabel>{playerName}</PlayerLabel>
       <button onClick={() => {
