@@ -10,8 +10,9 @@ const Wrapper = styled.div`
   font-size: 30px;
 `;
 
-const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
-  console.log(codeChallenge.length);
+const CodeContainer = ({ codeChallenge, charIndex, moveChar, gameActive }) => {
+
+  console.log('game active ', gameActive);
   const handleKeyPress = (e) => {
     if (e.which === 32) e.preventDefault();
     const keyPressChar = String.fromCharCode(e.which);
@@ -55,8 +56,12 @@ const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
   return (
     <Wrapper
       tabIndex={-1}
-      onKeyPress={handleKeyPress}
-      onKeyDown={handleTabPress}
+      onKeyPress={(e) => {
+        if (gameActive) handleKeyPress(e);
+      }}
+      onKeyDown={(e) => {
+        if (gameActive) handleTabPress(e);
+      }}
     >
       <span id='correct' style={{ color: 'white', backgroundColor: 'green' }} />
       <span id='currentLetter' style={{ backgroundColor: 'yellow' }} />

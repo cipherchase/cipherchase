@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actionCreators';
@@ -19,6 +19,7 @@ const mapStateToProps = store => ({
   charIndex: store.games.charIndex,
   playerPosition: store.games.playerPosition,
   cpuPosition: store.games.cpuPosition,
+  gameActive: store.games.gameActive,
 });
 
 
@@ -34,15 +35,23 @@ const GameContainer = ({
   moveCPU,
   playerPosition,
   cpuPosition,
+  gameActive,
 }) => {
-  setTimeout(moveCPU, 100);
+  useEffect(() => {
+    setInterval(moveCPU, 100);
+  }, []);
   return (
     <div>
       <Races>
         <Race playerName="CPU" position={cpuPosition} />
         <Race playerName="P1" position={playerPosition} />
       </Races>
-      <CodeContainer codeChallenge={codeChallenge} charIndex={charIndex} moveChar={moveChar} />
+      <CodeContainer
+        codeChallenge={codeChallenge}
+        charIndex={charIndex}
+        moveChar={moveChar}
+        gameActive={gameActive}
+      />
     </div>
   );
 };
