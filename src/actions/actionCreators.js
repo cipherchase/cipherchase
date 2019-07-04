@@ -11,7 +11,7 @@ import * as types from './actionTypes';
 */
 
 export const movePlayer = num => ({
-  type: types.MOVE_PlAYER,
+  type: types.MOVE_PLAYER,
   payload: { num },
 });
 
@@ -25,12 +25,10 @@ export const setIntervalID = intervalID => ({
 });
 
 export const playGame = () => dispatch => {
-  console.log('playGame invoked');
   fetch('http://localhost:3000/getChallenge')
     .then(res => res.json())
     .then(challenge => {
-      console.log('challenge received is ', challenge);
-      const length = challenge.length;
+      const { length } = challenge;
       dispatch({
         type: types.PLAY_GAME,
         payload: { challenge, length },

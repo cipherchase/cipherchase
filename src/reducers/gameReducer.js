@@ -1,15 +1,13 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
-  // codeChallenge: 'let counter = 0;<br/>for (let i = 0; i < test.length; i++) {<br/>&nbsp;&nbsp;counter += 1;<br/>}',
   codeChallenge: '',
   playerPosition: 0,
   cpuPosition: 0,
   playerSpeed: 0,
   cpuSpeed: Math.random() * 2 + 2,
-  cpuSpeed: 1,
   intervalID: null,
-  wins: 100,
+  wins: 0,
   winner: 'Play Now!',
   gameActive: false,
   charIndex: 0,
@@ -23,7 +21,7 @@ const gameReducer = (state = initialState, action) => {
   let cpuPosition;
   let winner;
   let gameActive;
-  let wins;
+  let newWins;
   let codeChallenge;
 
   switch (action.type) {
@@ -37,17 +35,17 @@ const gameReducer = (state = initialState, action) => {
         gameActive: true,
         user: true,
         codeChallenge,
-        playerSpeed
+        playerSpeed,
       };
 
     case types.MOVE_PLAYER:
       charIndex = state.charIndex + action.payload.num;
       playerPosition = state.playerPosition + state.playerSpeed * action.payload.num;
       gameActive = true;
-      wins = state.wins;
+      newWins = state.wins;
       if (playerPosition >= (800 - 1)) {
         winner = 'Player Wins';
-        wins += 1;
+        newWins += 1;
         gameActive = false;
       }
       return {
@@ -56,7 +54,7 @@ const gameReducer = (state = initialState, action) => {
         playerPosition,
         winner,
         gameActive,
-        wins,
+        wins: newWins,
       };
 
     case types.MOVE_CPU:
