@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions/actionCreators';
+import './form.css';
 
 const forms = {
   display: 'flex',
@@ -86,38 +87,34 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div style={box}>
-        <h4 style={titleStyle}>
-          <p>Welcome back</p>
-          <p>Please login</p>
-        </h4>
-        <form style={forms} onSubmit={this.handleSubmit}>
-          <div>
-            <label>
-              Username:
-              <input
-                name="username"
-                type="text"
-                style={inputStyle}
-                value={this.state.username}
-                onChange={this.handleChange}
-              />
-            </label>
+      <div className="form">
+        <ul className="tab-group">
+          <li className="tab">
+            <a href="/join">Sign Up</a>
+          </li>
+          <li className="tab active">
+            <a href="/auth">Log In</a>
+          </li>
+        </ul>
+
+        <div className="tab-content">
+          <div id="login">
+            <h1>Welcome Back!</h1>
+            <form onSubmit={this.handleSubmit}>
+              <div className="field-wrap">
+                <input name="username" type="text" required placeholder="Username:" value={this.state.username} onChange={this.handleChange} />
+              </div>
+
+              <div className="field-wrap">
+                <input name="password" type="password" required placeholder="Password:" value={this.state.password} onChange={this.handleChange} />
+              </div>
+              <p className="forgot">
+                <a href="#">Forgot Password?</a>
+              </p>
+              <input className="button button-block" type="submit" value="Log In" />
+            </form>
           </div>
-          <div>
-            <label>
-              Password:
-              <input
-                name="password"
-                type="password"
-                style={inputStyle}
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-            </label>
-          </div>
-          <input style={submitStyle} type="submit" value="Submit" />
-        </form>
+        </div>
       </div>
     );
   }
