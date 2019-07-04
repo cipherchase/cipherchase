@@ -132,6 +132,9 @@ class SignupForm extends React.Component {
               <div className="field-wrap">
                 <input name="password" placeholder="Set A Password" type="password" required value={this.state.password} onChange={this.handleChange}/>
               </div>
+              <p className="forgot">
+                <a href="#">Continue without signup</a>
+              </p>
               <input className="button button-block" type="submit" value="Sign Up"/>
             </form>
           </div>
