@@ -117,7 +117,7 @@ class SignupForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
              <div className="top-row">
             <div className="field-wrap">
-              <input  name="firstname" placeholder="First Name" type="text" required  />
+              <input name="firstname" placeholder="First Name" type="text" required  />
             </div>
 
             <div className="field-wrap">
@@ -133,11 +133,7 @@ class SignupForm extends React.Component {
           </div>
 
           <div className="field-wrap">
-            <label>
-              Set A Password
-              <span className="req">*</span>
-            </label>
-            <input name="password" type="password" required  />
+            <input name="password" placeholder="Set A Password" type="password" required  />
           </div>
               <input className="button button-block" type="submit" value="Sign Up" />
             </form>
