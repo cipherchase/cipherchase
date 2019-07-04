@@ -27,6 +27,16 @@ const gameReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.PLAY_GAME:
       codeChallenge = action.payload.challenge;
+      const string = 'hello<br/>&nbsp;world';
+      console.log(string);
+      let i = 0;
+      let length = 0;
+      while (i < string.length) {
+        i += 1;
+        length += 1;
+      }
+      console.log(length);
+      console.log(length === 8);
       playerSpeed = 800 / codeChallenge.length;
       return {
         ...initialState,
