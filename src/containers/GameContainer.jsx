@@ -69,7 +69,8 @@ const GameContainer = ({
       setIntervalID(null);
     }
     // When player wins, save user's score to database
-    // For now, username temporarily is hardcoded to 'codesmith' until it is available in Redux Store
+    // For now, username temporarily is hardcoded to 'codesmith'
+    // until it is available in Redux Store
     if (winner === 'Player Wins') saveScore('codesmith', wins);
 
   }, [gameActive]);
