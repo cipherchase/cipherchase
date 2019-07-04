@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import * as actions from '../actions/actionCreators';
 
 const Wrapper = styled.div`
   border: 1px solid black;
@@ -12,17 +10,8 @@ const Wrapper = styled.div`
   font-size: 30px;
 `;
 
-const mapStateToProps = store => ({
-  codeChallenge: store.games.codeChallenge,
-  charIndex: store.games.charIndex,
-});
-
-const mapDispatchToProps = dispatch => ({
-  moveChar: num => dispatch(actions.moveChar(num)),
-});
-
 const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
-
+  console.log(codeChallenge.length);
   const handleKeyPress = (e) => {
     if (e.which === 32) e.preventDefault();
     const keyPressChar = String.fromCharCode(e.which);
@@ -76,4 +65,4 @@ const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CodeContainer);
+export default CodeContainer;

@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import * as actions from '../actions/actionCreators';
+
 import Race from '../components/Race.jsx';
 import CodeContainer from './CodeContainer.jsx';
 
@@ -11,14 +14,32 @@ const Races = styled.div`
   border: 1px solid black;
 `;
 
-const GameContainer = () => (
+const mapStateToProps = store => ({
+  codeChallenge: store.games.codeChallenge,
+  charIndex: store.games.charIndex,
+  playerPosition: store.games.playerPosition,
+  cpuPosition: store.games.cpuPosition,
+});
+
+
+const mapDispatchToProps = dispatch => ({
+  moveChar: num => dispatch(actions.moveChar(num)),
+});
+
+const GameContainer = ({
+  codeChallenge,
+  charIndex,
+  moveChar,
+  playerPosition,
+  cpuPosition,
+}) => (
   <div>
     <Races>
-      <Race playerName="CPU" />
-      <Race playerName="P1" />
+      <Race playerName="CPU" position={cpuPosition} />
+      <Race playerName="P1" position={playerPosition} />
     </Races>
-    <CodeContainer />
+    <CodeContainer codeChallenge={codeChallenge} charIndex={charIndex} moveChar={moveChar} />
   </div>
 );
 
-export default GameContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);

@@ -22,27 +22,16 @@ const SpaceShip = styled.i`
   margin-left: 75px;
   color: purple;
   position: relative;
-  z-index: 2
+  z-index: 2;
 `;
 
-const Race = ({ playerName }) => {
-  let position = 0;
-  // will need to change depending on the length of the problem
-  const increment = 50;
-  return (
+const Race = ({ playerName, position }) => (
     <Wrapper>
-      <SpaceShip id={playerName} className="fas fa-shipping-fast fa-4x" />
+      <SpaceShip style={{ left: `${position}px` }} className="fas fa-rocket fa-4x" />
       <RaceTrack />
       <PlayerLabel>{playerName}</PlayerLabel>
-      <button onClick={() => {
-        if (position <= 800 - increment) {
-          const ship = document.querySelector(`#${playerName}`);
-          position += increment;
-          ship.style.left = `${position}px`;
-        }
-      }}>Move</button>
     </Wrapper>
-  );
-};
+);
+
 
 export default Race;
