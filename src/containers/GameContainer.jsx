@@ -49,14 +49,23 @@ const GameContainer = ({
 }) => {
 
   useEffect(() => {
-    const id = setInterval(moveCPU, 100);
-    setIntervalID(id);
+    if (!gameActive) {
+      clearInterval(intervalID);
+      setIntervalID(null);
+    } else {
+      const id = setInterval(moveCPU, 100);
+      setIntervalID(id);
+    }
+    
+    if (winner === 'Player Wins') {
+      fetch('http://localhost:3000/scores', {
+        method: 'PATCH',
+        body: JSON.stringify({ username: 'codesmith', score: wins }),
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      })
+        .then(response => console.log('Response back is ', response.json()));
+    }
   }, [gameActive]);
-
-  if (!gameActive) {
-    clearInterval(intervalID);
-    setIntervalID(null);
-  }
 
   return (
     <div>
