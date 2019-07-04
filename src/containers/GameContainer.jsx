@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Race from '../components/Race.jsx';
+import CodeContainer from './CodeContainer.jsx';
 
 const Races = styled.div`
   display: flex;
@@ -16,6 +17,7 @@ const GameContainer = () => (
       <Race playerName="CPU" />
       <Race playerName="P1" />
     </Races>
+    <CodeContainer />
   </div>
 );
 

@@ -101,63 +101,44 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div style={box}>
-        <h4 style={titleStyle}>
-          <p>Welcome, please sign up</p>
-        </h4>
-        <form style={forms} onSubmit={this.handleSubmit}>
-          <label>
-            Username:
-            <input
-              style={inputStyle}
-              name="username"
-              type="text"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              style={inputStyle}
-              name="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            First Name:
-            <input
-              style={inputStyle}
-              name="firstname"
-              type="text"
-              value={this.state.firstname}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Last Name:
-            <input
-              style={inputStyle}
-              name="lastname"
-              type="text"
-              value={this.state.lastname}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              style={inputStyle}
-              name="email"
-              type="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </label>
-          <input style={submitStyle} type="submit" value="Submit" />
-        </form>
+      <div className="form">
+        <ul className="tab-group">
+          <li className="tab active">
+            <a href="/join">Sign Up</a>
+          </li>
+          <li className="tab">
+            <a href="/auth">Log In</a>
+          </li>
+        </ul>
+
+        <div className="tab-content">
+          <div id="login">
+            <h1>Sign Up </h1>
+            <form onSubmit={this.handleSubmit}>
+              <div className="top-row">
+                <div className="field-wrap">
+                  <input name="firstname" placeholder="First Name" type="text" required value={this.state.firstname} onChange={this.handleChange}/>
+                </div>
+                <div className="field-wrap">
+                  <input name="lastname" placeholder="Last Name" type="text" required value={this.state.lastname} onChange={this.handleChange}/>
+                </div>
+              </div>
+              <div className="field-wrap">
+                <input name="email" placeholder="Email Address" type="email" required value={this.state.email} onChange={this.handleChange}/>
+              </div>
+              <div className="field-wrap">
+                <input name="username" placeholder="User Name" type="text" required value={this.state.username} onChange={this.handleChange}/>
+              </div>
+              <div className="field-wrap">
+                <input name="password" placeholder="Set A Password" type="password" required value={this.state.password} onChange={this.handleChange}/>
+              </div>
+              <p className="forgot">
+                <a href="#">Continue without signup</a>
+              </p>
+              <input className="button button-block" type="submit" value="Sign Up"/>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
