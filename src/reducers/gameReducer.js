@@ -32,7 +32,9 @@ const gameReducer = (state = initialState, action) => {
       let i = 0;
       let length = 0;
       while (i < string.length) {
-        i += 1;
+        if (string, substring(i, i + 5) === '<br/>') i += 4;
+        else if (string, substring(i, i + 6) === '&nbsp;') i += 5;
+        else i += 1;
         length += 1;
       }
       console.log(length);
