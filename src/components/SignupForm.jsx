@@ -121,7 +121,7 @@ class SignupForm extends React.Component {
                 </div>
 
                 <div className="field-wrap">
-                  <input name="lastname" placeholder="Last Name" type="text" required />
+                  <input name="lastname" placeholder="Last Name" type="text" required value={this.state.lastname} onChange={this.handleChange} />
                 </div>
               </div>
               <div className="field-wrap">
