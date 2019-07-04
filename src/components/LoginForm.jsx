@@ -88,7 +88,6 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="form">
-
         <ul className="tab-group">
           <li className="tab">
             <a href="#signup">Sign Up</a>
