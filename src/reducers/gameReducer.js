@@ -23,12 +23,23 @@ const gameReducer = (state = initialState, action) => {
   let gameActive;
   let newWins;
   let codeChallenge;
+  let i;
+  let codeLength;
 
   switch (action.type) {
 
     case types.PLAY_GAME:
       codeChallenge = action.payload.challenge;
-      playerSpeed = 800 / codeChallenge.length;
+      i = 0;
+      codeLength = 0;
+      while (i < codeChallenge.length - 1) {
+        if (codeChallenge.substring(i, i + 5) === '<br/>') i += 5;
+        else if (codeChallenge.substring(i, i + 6) === '&nbsp;') i += 6;
+        else if (codeChallenge.substring(i, i + 12) === '&nbsp;&nbsp;') i += 12;
+        else i += 1;
+        codeLength += 1;
+      }
+      playerSpeed = 800 / codeLength;
       return {
         ...initialState,
         intervalID: state.intervalID,
@@ -41,7 +52,7 @@ const gameReducer = (state = initialState, action) => {
 
     case types.MOVE_PLAYER:
       charIndex = state.charIndex + action.payload.num;
-      playerPosition = state.playerPosition + state.playerSpeed * action.payload.num;
+      playerPosition = state.playerPosition + state.playerSpeed;
       gameActive = true;
       newWins = state.wins;
       if (playerPosition >= (800 - 1)) {
