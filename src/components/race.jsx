@@ -26,11 +26,11 @@ const SpaceShip = styled.i`
 `;
 
 const Race = ({ playerName, position }) => (
-    <Wrapper>
-      <SpaceShip style={{ left: `${position}px` }} className="fas fa-rocket fa-4x" />
-      <RaceTrack />
-      <PlayerLabel>{playerName}</PlayerLabel>
-    </Wrapper>
+  <Wrapper>
+    <SpaceShip style={{ left: `${position}px` }} className="fas fa-rocket fa-4x" />
+    <RaceTrack />
+    <PlayerLabel>{playerName}</PlayerLabel>
+  </Wrapper>
 );
 
 

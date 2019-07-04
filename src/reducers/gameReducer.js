@@ -5,7 +5,7 @@ const initialState = {
   playerPosition: 0,
   cpuPosition: 0,
   playerSpeed: 800 / 96,
-  cpuSpeed: 10,
+  cpuSpeed: 5,
   score: 0,
   gameActive: false,
   charIndex: 0,
@@ -22,6 +22,10 @@ const gameReducer = (state = initialState, action) => {
       charIndex = state.charIndex + action.payload.num;
       playerPosition = state.playerPosition + state.playerSpeed * action.payload.num;
       return { ...state, charIndex, playerPosition };
+
+    case types.MOVE_CPU:
+      cpuPosition = state.cpuPosition + state.cpuSpeed;
+      return { ...state, cpuPosition };
 
     case types.LOG_IN:
       return { ...state, user: action.payload };

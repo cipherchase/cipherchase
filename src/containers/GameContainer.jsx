@@ -24,22 +24,27 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   moveChar: num => dispatch(actions.moveChar(num)),
+  moveCPU: () => dispatch(actions.moveCPU()),
 });
 
 const GameContainer = ({
   codeChallenge,
   charIndex,
   moveChar,
+  moveCPU,
   playerPosition,
   cpuPosition,
-}) => (
-  <div>
-    <Races>
-      <Race playerName="CPU" position={cpuPosition} />
-      <Race playerName="P1" position={playerPosition} />
-    </Races>
-    <CodeContainer codeChallenge={codeChallenge} charIndex={charIndex} moveChar={moveChar} />
-  </div>
-);
+}) => {
+  setTimeout(moveCPU, 100);
+  return (
+    <div>
+      <Races>
+        <Race playerName="CPU" position={cpuPosition} />
+        <Race playerName="P1" position={playerPosition} />
+      </Races>
+      <CodeContainer codeChallenge={codeChallenge} charIndex={charIndex} moveChar={moveChar} />
+    </div>
+  );
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);

@@ -15,6 +15,11 @@ export const moveChar = num => ({
   payload: { num },
 });
 
+export const moveCPU = () => ({
+  type: types.MOVE_CPU,
+  payload: { },
+});
+
 export const login = (username, password) => dispatch => {
   fetch('http://localhost:3000/login', {
     method: 'POST',
