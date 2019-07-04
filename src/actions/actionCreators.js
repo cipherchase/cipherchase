@@ -10,10 +10,31 @@ import * as types from './actionTypes';
 
 */
 
-export const moveChar = num => ({
-  type: types.MOVE_CHAR,
+export const movePlayer = num => ({
+  type: types.MOVE_PLAYER,
   payload: { num },
 });
+
+export const moveCPU = () => ({
+  type: types.MOVE_CPU,
+});
+
+export const setIntervalID = intervalID => ({
+  type: types.SET_INTERVAL_ID,
+  payload: { intervalID },
+});
+
+export const playGame = () => dispatch => {
+  fetch('http://localhost:3000/getChallenge')
+    .then(res => res.json())
+    .then(challenge => {
+      const { length } = challenge;
+      dispatch({
+        type: types.PLAY_GAME,
+        payload: { challenge, length },
+      });
+    });
+};
 
 export const login = (username, password) => dispatch => {
   fetch('http://localhost:3000/login', {
