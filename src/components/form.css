@@ -108,7 +108,7 @@ textarea {
   background: #1ab188;
   color: #fff;
   transition: all 0.5s ease;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
 }
 .button:hover, .button:focus {
   background: #179b77;
@@ -124,11 +124,6 @@ textarea {
 body {
   /* background: #c1bdba; */
   font-family: 'Titillium Web', sans-serif;
-}
-a {
-  text-decoration: none;
-  color: #1ab188;
-  transition: 0.5s ease;
 }
 a:hover {
   color: #179b77;
