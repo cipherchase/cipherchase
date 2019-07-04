@@ -10,7 +10,7 @@ const Races = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: 1150px;
+  width: 1075px;
   border: 1px solid black;
 `;
 

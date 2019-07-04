@@ -8,18 +8,18 @@ const Wrapper = styled.div`
 `;
 
 const RaceTrack = styled.div`
-  width: 855px;
+  width: 854px;
   border-top: 3px dashed black;
   position: relative;
-  left: -55px;
+  left: -54px;
 `;
 
 const PlayerLabel = styled.h4`
-  margin-left: 10px;
+  margin: 10px;
 `;
 
 const SpaceShip = styled.i`
-  margin-left: 55px;
+  margin-left: 54px;
   color: #1ab188;
   position: relative;
   transform: rotate(46deg);

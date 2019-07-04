@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   border: 1px solid black;
-  width: 1150px;
+  width: 1075px;
   height: 250px;
-  margin: 10px;
   padding: 10px;
+  margin-top: 10px;
   font-size: 30px;
 `;
 
