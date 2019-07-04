@@ -45,7 +45,8 @@ userController.verifyUser = (req, res, next) => {
 userController.getChallenge = (req, res, next) => {
   client.query('SELECT * FROM codechallenges', (err, results) => {
     res.set('Content-Type', 'application/json');
-    res.send(JSON.stringify(results.rows[0].challenge));
+    const i = Math.floor(Math.random() * results.rows.length);
+    res.send(JSON.stringify(results.rows[i].challenge));
     next();
   });
 };

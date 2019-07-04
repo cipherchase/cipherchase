@@ -18,6 +18,7 @@ CREATE TABLE users(
 
 
  INSERT INTO codechallenges (challenge) 
- VALUES('for (let i = 0; i < cars.length; i+=1) { 
-  text += cars[i] + "paints";
-  }');
+ VALUES('let counter = 0;<br/>for (let i = 0; i < array.length; i++) {<br/>&nbsp;&nbsp;counter += 1;<br/>}');
+
+  INSERT INTO codechallenges (challenge) 
+ VALUES('function squareNum(num){<br/>&nbsp;&nbsp;return num*num;<br/>};');

@@ -6,7 +6,7 @@ const initialState = {
   playerPosition: 0,
   cpuPosition: 0,
   playerSpeed: 0,
-  cpuSpeed: Math.random() * 3 + 2,
+  cpuSpeed: Math.random() * 2 + 2,
   intervalID: null,
   wins: 100,
   winner: 'Play Now!',
