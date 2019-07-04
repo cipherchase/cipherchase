@@ -10,8 +10,8 @@ import * as types from './actionTypes';
 
 */
 
-export const moveChar = num => ({
-  type: types.MOVE_CHAR,
+export const movePlayer = num => ({
+  type: types.MOVE_PlAYER,
   payload: { num },
 });
 

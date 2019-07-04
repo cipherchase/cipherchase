@@ -27,7 +27,7 @@ const mapStateToProps = store => ({
 
 
 const mapDispatchToProps = dispatch => ({
-  moveChar: num => dispatch(actions.moveChar(num)),
+  movePlayer: num => dispatch(actions.movePlayer(num)),
   moveCPU: () => dispatch(actions.moveCPU()),
   setIntervalID: intervalID => dispatch(actions.setIntervalID(intervalID)),
   playGame: () => dispatch(actions.playGame()),
@@ -36,7 +36,7 @@ const mapDispatchToProps = dispatch => ({
 const GameContainer = ({
   codeChallenge,
   charIndex,
-  moveChar,
+  movePlayer,
   moveCPU,
   setIntervalID,
   playGame,
@@ -68,7 +68,7 @@ const GameContainer = ({
       <CodeContainer
         codeChallenge={codeChallenge}
         charIndex={charIndex}
-        moveChar={moveChar}
+        movePlayer={movePlayer}
         gameActive={gameActive}
       />
       <button onClick={playGame}>Play</button>
