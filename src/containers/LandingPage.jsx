@@ -7,7 +7,6 @@ import Header from './Header.jsx';
 const LandingPage = () => (
   <div>
     <BrowserRouter>
-      <Header />
       <div>
         <Route path="/" exact component={LoginForm} />
         <Route path="/" exact component={SignupForm} />
