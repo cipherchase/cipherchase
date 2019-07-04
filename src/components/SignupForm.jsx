@@ -129,11 +129,7 @@ class SignupForm extends React.Component {
           </div>
 
           <div className="field-wrap">
-            <label>
-              Email Address
-              <span className="req">*</span>
-            </label>
-            <input name="email" type="email" required  />
+            <input name="email" placeholder="Email Address" type="email" required  />
           </div>
 
           <div className="field-wrap">
