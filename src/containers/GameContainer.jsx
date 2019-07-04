@@ -60,7 +60,7 @@ const GameContainer = ({
 
   return (
     <div>
-      <h1>Score: {wins}</h1>
+      <h2>Score: {wins}</h2>
       <Races>
         <Race playerName="CPU" position={cpuPosition} />
         <Race playerName="P1" position={playerPosition} />
