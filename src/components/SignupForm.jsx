@@ -137,65 +137,6 @@ class SignupForm extends React.Component {
           </div>
         </div>
       </div>
-
-      // <div style={box}>
-      //   <h4 style={titleStyle}>
-      //     <p>Welcome, please sign up</p>
-      //   </h4>
-      //   <form style={forms} onSubmit={this.handleSubmit}>
-      //     <label>
-      //       Username:
-      //       <input
-      //         style={inputStyle}
-      //         name="username"
-      //         type="text"
-      //         value={this.state.username}
-      //         onChange={this.handleChange}
-      //       />
-      //     </label>
-      //     <label>
-      //       Password:
-      //       <input
-      //         style={inputStyle}
-      //         name="password"
-      //         type="password"
-      //         value={this.state.password}
-      //         onChange={this.handleChange}
-      //       />
-      //     </label>
-      //     <label>
-      //       First Name:
-      //       <input
-      //         style={inputStyle}
-      //         name="firstname"
-      //         type="text"
-      //         value={this.state.firstname}
-      //         onChange={this.handleChange}
-      //       />
-      //     </label>
-      //     <label>
-      //       Last Name:
-      //       <input
-      //         style={inputStyle}
-      //         name="lastname"
-      //         type="text"
-      //         value={this.state.lastname}
-      //         onChange={this.handleChange}
-      //       />
-      //     </label>
-      //     <label>
-      //       Email:
-      //       <input
-      //         style={inputStyle}
-      //         name="email"
-      //         type="email"
-      //         value={this.state.email}
-      //         onChange={this.handleChange}
-      //       />
-      //     </label>
-      //     <input style={submitStyle} type="submit" value="Submit" />
-      //   </form>
-      // </div>
     );
   }
 }
