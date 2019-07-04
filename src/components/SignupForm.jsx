@@ -113,31 +113,19 @@ class SignupForm extends React.Component {
 
         <div className="tab-content">
           <div id="login">
-          <h1>Sign Up for Free</h1>
+          <h1>Sign Up </h1>
             <form onSubmit={this.handleSubmit}>
              <div className="top-row">
             <div className="field-wrap">
-              <label>
-                First Name
-                <span className="req">*</span>
-              </label>
-              <input  name="firstname" type="text" required autocomplete="off" />
+              <input  name="firstname" placeholder="First Name" type="text" required  />
             </div>
 
             <div className="field-wrap">
-              <label>
-                Last Name
-                <span className="req">*</span>
-              </label>
-              <input name="lastname" type="text" required autocomplete="off" />
+              <input name="lastname" placeholder="Last Name" type="text" required  />
             </div>
           </div>
           <div className="field-wrap">
-            <label>
-              User Name
-              <span className="req">*</span>
-            </label>
-            <input name="username" type="text" required autocomplete="off" />
+            <input name="username" placeholder="User Name" type="text" required  />
           </div>
 
           <div className="field-wrap">
@@ -145,7 +133,7 @@ class SignupForm extends React.Component {
               Email Address
               <span className="req">*</span>
             </label>
-            <input name="email" type="email" required autocomplete="off" />
+            <input name="email" type="email" required  />
           </div>
 
           <div className="field-wrap">
@@ -153,9 +141,9 @@ class SignupForm extends React.Component {
               Set A Password
               <span className="req">*</span>
             </label>
-            <input name="password" type="password" required autocomplete="off" />
+            <input name="password" type="password" required  />
           </div>
-              <input className="button button-block" type="submit" value="Log In" />
+              <input className="button button-block" type="submit" value="Sign Up" />
             </form>
           </div>
         </div>
