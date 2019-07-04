@@ -27,25 +27,15 @@ const gameReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.PLAY_GAME:
       codeChallenge = action.payload.challenge;
-      const string = 'hello<br/>&nbsp;world';
       let i = 0;
       let length = 0;
-      while (i < string.length) {
-        // console.log(string[i]);
-        console.log(string.substr(i, i + 1));
-        // if (string.substr(i, i + 5) === '<br/>') {
-        //   console.log('helloo')
-        //   i += 5
-        // }
-        // else if (string.substr(i, i + 6) === '&nbsp;') i += 6;
-        // else i += 1;
-        i += 1;
+      while (i < codeChallenge.length) {
+        if (codeChallenge.substring(i, i + 5) === '<br/>') i += 5;
+        else if (codeChallenge.substring(i, i + 6) === '&nbsp;') i += 6;
+        else i += 1;
         length += 1;
       }
-      console.log(string.length);
-      console.log(length);
-      console.log(length === 8);
-      playerSpeed = 800 / codeChallenge.length;
+      playerSpeed = 800 / length;
       return {
         ...initialState,
         intervalID: state.intervalID,
