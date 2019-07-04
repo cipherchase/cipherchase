@@ -54,7 +54,9 @@ const GameContainer = ({
       body: JSON.stringify({ username, score }),
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
     })
-      .then(response => console.log('Response back is ', response.json()));
+      .then(response => response.json())
+      .then(success => console.log(success))
+      .catch(err => console.error('Error ', err));
   };
 
   useEffect(() => {
@@ -67,7 +69,7 @@ const GameContainer = ({
       setIntervalID(null);
     }
     // When player wins, save user's score to database
-    // Currently username is hardcoded to 'codesmith' until we have a username in Redux Store
+    // For now, username temporarily is hardcoded to 'codesmith' until it is available in Redux Store
     if (winner === 'Player Wins') saveScore('codesmith', wins);
 
   }, [gameActive]);
