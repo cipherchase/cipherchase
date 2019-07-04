@@ -27,6 +27,7 @@ const gameReducer = (state = initialState, action) => {
   let codeLength;
 
   switch (action.type) {
+
     case types.PLAY_GAME:
       codeChallenge = action.payload.challenge;
       i = 0;

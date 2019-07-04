@@ -48,15 +48,32 @@ const GameContainer = ({
   wins,
 }) => {
 
-  useEffect(() => {
-    const id = setInterval(moveCPU, 100);
-    setIntervalID(id);
-  }, [gameActive]);
+  const saveScore = (username, score) => {
+    fetch('http://localhost:3000/scores', {
+      method: 'PATCH',
+      body: JSON.stringify({ username, score }),
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    })
+      .then(response => response.json())
+      .then(success => console.log(success))
+      .catch(err => console.error('Error ', err));
+  };
 
-  if (!gameActive) {
-    clearInterval(intervalID);
-    setIntervalID(null);
-  }
+  useEffect(() => {
+    // Move CPU when game starts
+    if (gameActive) {
+      const id = setInterval(moveCPU, 100);
+      setIntervalID(id);
+    } else {
+      clearInterval(intervalID);
+      setIntervalID(null);
+    }
+    // When player wins, save user's score to database
+    // For now, username temporarily is hardcoded to 'codesmith'
+    // until it is available in Redux Store
+    if (winner === 'Player Wins') saveScore('codesmith', wins);
+
+  }, [gameActive]);
 
   return (
     <div>
