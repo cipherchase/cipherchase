@@ -101,64 +101,124 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div style={box}>
-        <h4 style={titleStyle}>
-          <p>Welcome, please sign up</p>
-        </h4>
-        <form style={forms} onSubmit={this.handleSubmit}>
-          <label>
-            Username:
-            <input
-              style={inputStyle}
-              name="username"
-              type="text"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              style={inputStyle}
-              name="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            First Name:
-            <input
-              style={inputStyle}
-              name="firstname"
-              type="text"
-              value={this.state.firstname}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Last Name:
-            <input
-              style={inputStyle}
-              name="lastname"
-              type="text"
-              value={this.state.lastname}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              style={inputStyle}
-              name="email"
-              type="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </label>
-          <input style={submitStyle} type="submit" value="Submit" />
-        </form>
+      <div className="form">
+        <ul className="tab-group">
+          <li className="tab active">
+            <a href="#signup">Sign Up</a>
+          </li>
+          <li className="tab">
+            <a href="#login">Log In</a>
+          </li>
+        </ul>
+
+        <div className="tab-content">
+          <div id="login">
+          <h1>Sign Up for Free</h1>
+            <form onSubmit={this.handleSubmit}>
+             <div className="top-row">
+            <div className="field-wrap">
+              <label>
+                First Name
+                <span className="req">*</span>
+              </label>
+              <input  name="firstname" type="text" required autocomplete="off" />
+            </div>
+
+            <div className="field-wrap">
+              <label>
+                Last Name
+                <span className="req">*</span>
+              </label>
+              <input name="lastname" type="text" required autocomplete="off" />
+            </div>
+          </div>
+          <div className="field-wrap">
+            <label>
+              User Name
+              <span className="req">*</span>
+            </label>
+            <input name="username" type="text" required autocomplete="off" />
+          </div>
+
+          <div className="field-wrap">
+            <label>
+              Email Address
+              <span className="req">*</span>
+            </label>
+            <input name="email" type="email" required autocomplete="off" />
+          </div>
+
+          <div className="field-wrap">
+            <label>
+              Set A Password
+              <span className="req">*</span>
+            </label>
+            <input name="password" type="password" required autocomplete="off" />
+          </div>
+              <input className="button button-block" type="submit" value="Log In" />
+            </form>
+          </div>
+        </div>
       </div>
+
+      // <div style={box}>
+      //   <h4 style={titleStyle}>
+      //     <p>Welcome, please sign up</p>
+      //   </h4>
+      //   <form style={forms} onSubmit={this.handleSubmit}>
+      //     <label>
+      //       Username:
+      //       <input
+      //         style={inputStyle}
+      //         name="username"
+      //         type="text"
+      //         value={this.state.username}
+      //         onChange={this.handleChange}
+      //       />
+      //     </label>
+      //     <label>
+      //       Password:
+      //       <input
+      //         style={inputStyle}
+      //         name="password"
+      //         type="password"
+      //         value={this.state.password}
+      //         onChange={this.handleChange}
+      //       />
+      //     </label>
+      //     <label>
+      //       First Name:
+      //       <input
+      //         style={inputStyle}
+      //         name="firstname"
+      //         type="text"
+      //         value={this.state.firstname}
+      //         onChange={this.handleChange}
+      //       />
+      //     </label>
+      //     <label>
+      //       Last Name:
+      //       <input
+      //         style={inputStyle}
+      //         name="lastname"
+      //         type="text"
+      //         value={this.state.lastname}
+      //         onChange={this.handleChange}
+      //       />
+      //     </label>
+      //     <label>
+      //       Email:
+      //       <input
+      //         style={inputStyle}
+      //         name="email"
+      //         type="email"
+      //         value={this.state.email}
+      //         onChange={this.handleChange}
+      //       />
+      //     </label>
+      //     <input style={submitStyle} type="submit" value="Submit" />
+      //   </form>
+      // </div>
     );
   }
 }
