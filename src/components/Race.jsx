@@ -8,10 +8,10 @@ const Wrapper = styled.div`
 `;
 
 const RaceTrack = styled.div`
-  width: 875px;
+  width: 855px;
   border-top: 3px dashed black;
   position: relative;
-  left: -75px;
+  left: -55px;
 `;
 
 const PlayerLabel = styled.h4`
@@ -19,10 +19,22 @@ const PlayerLabel = styled.h4`
 `;
 
 const SpaceShip = styled.i`
-  margin-left: 75px;
-  color: purple;
+  margin-left: 55px;
+  color: #1ab188;
   position: relative;
+  transform: rotate(46deg);
   z-index: 2;
+  &:after{
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 25px;
+    background-color: #1ab188;
+    position: absolute;
+    top: 3px;
+    left: 36px;
+    border-radius: 21px;
+  }
 `;
 
 const Race = ({ playerName, position }) => (
