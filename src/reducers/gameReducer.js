@@ -25,6 +25,7 @@ const gameReducer = (state = initialState, action) => {
   let codeChallenge;
 
   switch (action.type) {
+
     case types.PLAY_GAME:
       codeChallenge = action.payload.challenge;
       playerSpeed = 800 / codeChallenge.length;
