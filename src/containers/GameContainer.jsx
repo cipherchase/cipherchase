@@ -33,6 +33,8 @@ const mapDispatchToProps = dispatch => ({
   playGame: () => dispatch(actions.playGame()),
 });
 
+// GAME CONTAINER
+
 const GameContainer = ({
   codeChallenge,
   charIndex,
@@ -62,6 +64,9 @@ const GameContainer = ({
   useEffect(() => {
     // Move CPU when game starts
     if (gameActive) {
+      const codingBox = document.querySelector('#codingBox');
+      console.log(codingBox);
+      codingBox.focus();
       const id = setInterval(moveCPU, 100);
       setIntervalID(id);
     } else {
@@ -79,8 +84,8 @@ const GameContainer = ({
     <div>
       <h2>Score: {wins}</h2>
       <Races>
-        <Race playerName="CPU" position={cpuPosition} />
-        <Race playerName="P1" position={playerPosition} />
+        <Race playerName="CPU" position={cpuPosition} color="purple" />
+        <Race playerName="P1" position={playerPosition} color="green" />
       </Races>
       <CodeContainer
         codeChallenge={codeChallenge}

@@ -66,6 +66,7 @@ const CodeContainer = ({
 
   return (
     <Wrapper
+      id="codingBox"
       tabIndex={-1}
       onKeyPress={(e) => {
         if (gameActive) handleKeyPress(e);
