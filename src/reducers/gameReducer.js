@@ -11,7 +11,7 @@ const initialState = {
   winner: 'Play Now!',
   gameActive: false,
   charIndex: 0,
-  user: false,
+  isAuthenticated: false,
   username: null,
 };
 
@@ -91,7 +91,7 @@ const gameReducer = (state = initialState, action) => {
       console.log('action payload ', action.payload);
       return {
         ...state,
-        user: action.payload.auth,
+        isAuthenticated: action.payload.isAuthenticated,
         username: action.payload.username,
       };
 

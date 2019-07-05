@@ -42,7 +42,7 @@ export const login = (username, password) => dispatch => {
         type: types.LOG_IN,
         payload: {
           username: auth.username,
-          authenticated: auth.login,
+          isAuthenticated: auth.login,
         },
       });
     });
