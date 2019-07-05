@@ -9,10 +9,11 @@ const Wrapper = styled.div`
 `;
 
 const RaceTrack = styled.div`
-  width: 354px;
+  width: 364px;
   border-top: 3px dashed black;
   position: relative;
   left: -54px;
+  z-index: 3;
 `;
 
 const PlayerLabel = styled.h4`
