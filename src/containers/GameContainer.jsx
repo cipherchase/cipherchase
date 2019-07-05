@@ -84,8 +84,8 @@ const GameContainer = ({
     <div>
       <h2>Score: {wins}</h2>
       <Races>
-        <Race playerName="CPU" position={cpuPosition} color="purple" />
-        <Race playerName="P1" position={playerPosition} color="green" />
+        <Race playerName="CPU" position={cpuPosition} shipColor="#c15ce7" circleColor="purple" />
+        <Race playerName="P1" position={playerPosition} shipColor="#1ab188" circleColor="green" />
       </Races>
       <CodeContainer
         codeChallenge={codeChallenge}
