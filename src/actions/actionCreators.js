@@ -27,7 +27,13 @@ export const setIntervalID = intervalID => ({
 export const playGame = () => dispatch => {
   fetch('http://localhost:3000/getChallenge')
     .then(res => res.json())
-    .then(challenge => dispatch({ type: types.PLAY_GAME, payload: { challenge } }));
+    .then(challenge => dispatch({
+      type: types.PLAY_GAME,
+      payload: {
+        challenge,
+        cpuSpeed: Math.random() * 2 + 0.75,
+      },
+    }));
 };
 
 export const login = (username, password) => dispatch => {

@@ -5,7 +5,7 @@ const initialState = {
   playerPosition: 0,
   cpuPosition: 0,
   playerSpeed: 0,
-  cpuSpeed: Math.random() * 0.75 + 0.75,
+  cpuSpeed: 0,
   intervalID: null,
   wins: 0,
   message: 'Play Now!',
@@ -26,10 +26,12 @@ const gameReducer = (state = initialState, action) => {
   let codeChallenge;
   let i;
   let codeLength;
+  let newCPUSpeed;
 
   switch (action.type) {
 
     case types.PLAY_GAME:
+      newCPUSpeed = action.payload.cpuSpeed;
       codeChallenge = action.payload.challenge;
       i = 0;
       codeLength = 0;
@@ -49,6 +51,7 @@ const gameReducer = (state = initialState, action) => {
         username: state.username,
         isAuthenticated: true,
         codeChallenge,
+        cpuSpeed: newCPUSpeed,
         playerSpeed,
       };
 
