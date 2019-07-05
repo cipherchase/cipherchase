@@ -21,7 +21,7 @@ const ControlPanel = styled.div`
   grid-template-columns: repeat(3, 33%);
   text-align: center;
   margin-top: 10px;
-  padding: 15px 0;
+  padding: 7px 0;
   font-size: .75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -31,7 +31,7 @@ const ControlPanel = styled.div`
 
 const PlayButton = styled.button`
   font-weight: 700;
-  padding: 15px 0;
+  padding: 7px 0;
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -44,6 +44,7 @@ const PlayButton = styled.button`
 const Wrapper = styled.div`
   max-width: 700px;
   margin: 40px auto;
+  box-shadow: 0 2px 5px 2x rgba(19, 35, 47, .3);
 `;
 
 const Title = styled.div`
@@ -90,8 +91,6 @@ const mapDispatchToProps = dispatch => ({
   setIntervalID: intervalID => dispatch(actions.setIntervalID(intervalID)),
   playGame: () => dispatch(actions.playGame()),
 });
-
-// GAME CONTAINER
 
 const GameContainer = ({
   codeChallenge,
