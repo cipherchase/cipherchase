@@ -13,7 +13,6 @@ const RaceTrack = styled.div`
   border-top: 3px dashed black;
   position: relative;
   left: -54px;
-  z-index: 3;
 `;
 
 const PlayerLabel = styled.h4`
@@ -32,7 +31,7 @@ const Race = ({
   color: ${shipColor};
   position: relative;
   transform: rotate(46deg);
-  z-index: 2;
+  z-index: 1;
   &:after{
     content: '';
     display: inline-block;

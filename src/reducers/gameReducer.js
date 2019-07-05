@@ -55,8 +55,8 @@ const gameReducer = (state = initialState, action) => {
       playerPosition = state.playerPosition + state.playerSpeed;
       gameActive = true;
       newWins = state.wins;
-      message = '=W='
-      if (playerPosition >= (300 - 1)) {
+      message = '=W=';
+      if (playerPosition >= (300 - 2)) {
         message = 'Player Wins';
         newWins += 1;
         gameActive = false;
