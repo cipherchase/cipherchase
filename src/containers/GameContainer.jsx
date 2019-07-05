@@ -14,6 +14,26 @@ const Races = styled.div`
   border: 1px solid black;
 `;
 
+const ControlPanel = styled.div`
+  display: grid;
+  width: 1075px;
+  grid-template-columns: repeat(3, 33%);
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 5px;
+`;
+
+const PlayButton = styled.button`
+  font-size: 30px;
+  font-weight: 700;
+  background-color: #eee;
+  border-radius: 10px;
+  letter-spacing: 10px;
+`;
+
+
 const mapStateToProps = store => ({
   codeChallenge: store.games.codeChallenge,
   charIndex: store.games.charIndex,
@@ -21,10 +41,9 @@ const mapStateToProps = store => ({
   cpuPosition: store.games.cpuPosition,
   gameActive: store.games.gameActive,
   intervalID: store.games.intervalID,
-  winner: store.games.winner,
+  message: store.games.message,
   wins: store.games.wins,
 });
-
 
 const mapDispatchToProps = dispatch => ({
   movePlayer: num => dispatch(actions.movePlayer(num)),
@@ -46,7 +65,7 @@ const GameContainer = ({
   playerPosition,
   cpuPosition,
   gameActive,
-  winner,
+  message,
   wins,
 }) => {
 
@@ -65,7 +84,6 @@ const GameContainer = ({
     // Move CPU when game starts
     if (gameActive) {
       const codingBox = document.querySelector('#codingBox');
-      console.log(codingBox);
       codingBox.focus();
       const id = setInterval(moveCPU, 100);
       setIntervalID(id);
@@ -76,13 +94,13 @@ const GameContainer = ({
     // When player wins, save user's score to database
     // For now, username temporarily is hardcoded to 'codesmith'
     // until it is available in Redux Store
-    if (winner === 'Player Wins') saveScore('codesmith', wins);
+    if (message === 'Player Wins') saveScore('codesmith', wins);
 
   }, [gameActive]);
 
   return (
     <div>
-      <h2>Score: {wins}</h2>
+
       <Races>
         <Race playerName="CPU" position={cpuPosition} shipColor="#c15ce7" circleColor="purple" />
         <Race playerName="P1" position={playerPosition} shipColor="#1ab188" circleColor="green" />
@@ -93,8 +111,11 @@ const GameContainer = ({
         movePlayer={movePlayer}
         gameActive={gameActive}
       />
-      <button onClick={playGame}>Play</button>
-      <h2>{!gameActive && `${winner}`}</h2>
+      <ControlPanel>
+        <h2>Score: {wins}</h2>
+        <PlayButton onClick={playGame}>Start</PlayButton>
+        <h2>{message}</h2>
+      </ControlPanel>
     </div>
   );
 };

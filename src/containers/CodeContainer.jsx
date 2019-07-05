@@ -5,9 +5,10 @@ const Wrapper = styled.div`
   border: 1px solid black;
   width: 1075px;
   height: 250px;
-  padding: 10px;
+  padding: 50px 30px;
   margin-top: 10px;
   font-size: 30px;
+    
 `;
 
 const CodeContainer = ({
