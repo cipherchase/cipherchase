@@ -6,9 +6,8 @@ const mapStateToProps = store => ({
   isAuthenticated: store.games.isAuthenticated,
 });
 
-const Header = ({ isAuthenticated }) => {
-  console.log('Is it authenticated? ', isAuthenticated);
-  return <div>
+const Header = ({ isAuthenticated }) => (
+  <div>
     <nav>
       <h2>
         <Link to="/">Home</Link>
@@ -33,6 +32,6 @@ const Header = ({ isAuthenticated }) => {
       )}
     </nav>
   </div>
-};
+);
 
 export default connect(mapStateToProps)(Header);

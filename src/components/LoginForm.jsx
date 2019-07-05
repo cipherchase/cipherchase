@@ -4,7 +4,6 @@ import { login } from '../actions/actionCreators';
 import './form.css';
 
 const mapStateToProps = store => ({
-  
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -12,11 +11,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const LoginForm = ({ signIn }) => {
-  // handleChange(event) {
-  //   const { name, value } = event.target;
-  //   if (name === 'username') this.setState({ username: value });
-  //   if (name === 'password') this.setState({ password: value });
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,7 +39,6 @@ const LoginForm = ({ signIn }) => {
                 type="text"
                 required
                 placeholder="Username:"
-                // onChange={(e) => console.log(e.target.value)}
               />
             </div>
 
@@ -56,7 +49,6 @@ const LoginForm = ({ signIn }) => {
                 type="password"
                 required
                 placeholder="Password:"
-                // onChange={}
               />
             </div>
             <p className="forgot">
@@ -69,6 +61,6 @@ const LoginForm = ({ signIn }) => {
     </div>
   );
 
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

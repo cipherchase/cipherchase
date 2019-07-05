@@ -88,7 +88,6 @@ const gameReducer = (state = initialState, action) => {
       return { ...state, intervalID: action.payload.intervalID };
 
     case types.LOG_IN:
-      console.log('action payload ', action.payload);
       return {
         ...state,
         isAuthenticated: action.payload.isAuthenticated,

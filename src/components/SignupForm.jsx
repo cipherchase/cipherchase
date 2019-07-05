@@ -2,62 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../actions/actionCreators';
 
-// Styling
-const titleStyle = {
-  color: 'black',
-  fontSize: '1.2em',
-  textAlign: 'center',
-};
-
-const box = {
-  margin: 'auto',
-  alignItems: 'center',
-  height: '32em',
-  width: '30em',
-  border: '0.2em solid grey',
-  borderRadius: '8px',
-  display: 'flex',
-  justifyContent: 'center',
-  flexDirection: 'column',
-  alignContent: 'center',
-  alignSelf: 'stretch',
-  fontWeight: '900',
-};
-
-const forms = {
-  display: 'flex',
-  alignItems: 'center',
-  borderRadius: '8px',
-  width: '80px',
-  flexDirection: 'column',
-};
-
-const inputStyle = {
-  margin: '7px',
-  width: '15em',
-  display: 'flex',
-  justifyContent: 'center',
-  border: '1px solid grey',
-  backgroundColor: '#f4f4f4',
-  opacity: '0.6',
-  height: '1.7em',
-  borderRadius: '8px',
-};
-
-const submitStyle = {
-  color: 'black',
-  backgroundColor: 'lightblue',
-  border: '1px solid grey',
-  borderRadius: '8px',
-  padding: '0.5em',
-  width: '15em',
-  letterSpacing: '10px',
-  fontFamily: 'serif',
-  margin: '2em',
-};
-
 const mapStateToProps = store => ({
-  games: store.games,
+  
 });
 
 const mapDispatchToProps = dispatch => ({
