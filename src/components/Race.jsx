@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 10px;
+  border-radius: 10px;
 `;
 
 const RaceTrack = styled.div`

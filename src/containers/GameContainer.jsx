@@ -11,7 +11,8 @@ const Races = styled.div`
   flex-direction: column;
   padding: 10px;
   width: 1075px;
-  border: 1px solid black;
+  background: white;
+  border-radius: 10px;
 `;
 
 const ControlPanel = styled.div`
@@ -20,19 +21,37 @@ const ControlPanel = styled.div`
   grid-template-columns: repeat(3, 33%);
   text-align: center;
   margin-top: 10px;
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 5px;
+  padding: 15px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: white;
 `;
 
 const PlayButton = styled.button`
   font-size: 30px;
   font-weight: 700;
-  background-color: #eee;
-  border-radius: 10px;
-  letter-spacing: 10px;
+  padding: 15px 0;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #1ab188;
+  color: #fff;
+  border: none;
 `;
 
+const Wrapper = styled.div`
+  background: rgba(19, 35, 47, .9);
+  padding: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
+  display: flex;
+  flex-direction: column;
+`;
 
 const mapStateToProps = store => ({
   codeChallenge: store.games.codeChallenge,
@@ -99,8 +118,7 @@ const GameContainer = ({
   }, [gameActive]);
 
   return (
-    <div>
-
+    <Wrapper>
       <Races>
         <Race playerName="CPU" position={cpuPosition} shipColor="#c15ce7" circleColor="purple" />
         <Race playerName="P1" position={playerPosition} shipColor="#1ab188" circleColor="green" />
@@ -113,10 +131,10 @@ const GameContainer = ({
       />
       <ControlPanel>
         <h2>Score: {wins}</h2>
-        <PlayButton onClick={playGame}>Start</PlayButton>
+        <PlayButton onClick={playGame}>START</PlayButton>
         <h2>{message}</h2>
       </ControlPanel>
-    </div>
+    </Wrapper>
   );
 };
 

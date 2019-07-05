@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  border: 1px solid black;
   width: 1075px;
   height: 250px;
   padding: 50px 30px;
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 30px;
-    
+  background: white;
+  border-radius: 10px;
 `;
 
 const CodeContainer = ({
