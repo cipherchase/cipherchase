@@ -95,10 +95,13 @@ const gameReducer = (state = initialState, action) => {
       };
 
     case types.SIGN_UP:
-      return { ...state, user: action.payload };
+      return {
+        ...state,
+        isAuthenticated: action.payload.isAuthenticated,
+        username: action.payload.username,
+      };
 
     default:
-
       return state;
   }
 };

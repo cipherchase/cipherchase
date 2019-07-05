@@ -42,7 +42,7 @@ export const login = (username, password) => dispatch => {
         type: types.LOG_IN,
         payload: {
           username: auth.username,
-          isAuthenticated: auth.login,
+          isAuthenticated: auth.isAuthenticated,
         },
       });
     });
@@ -61,7 +61,13 @@ export const signup = (username, password, firstname, lastname, email) => dispat
     headers: { 'Content-type': 'application/json; charset=UTF-8' },
   })
     .then(response => response.json())
-    .then(json => {
-      dispatch({ type: types.SIGN_UP, payload: json });
+    .then(auth => {
+      dispatch({
+        type: types.SIGN_UP,
+        payload: {
+          username: auth.username,
+          isAuthenticated: auth.isAuthenticated,
+        },
+      });
     });
 };

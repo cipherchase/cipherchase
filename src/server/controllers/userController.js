@@ -12,14 +12,14 @@ userController.createUser = (req, res, next) => {
   const {
     username, password, firstname, lastname, email,
   } = req.body;
-  client.query('INSERT INTO users (username, password, firstname, lastname, email) VALUES ($1, $2, $3, $4, $5);',
-    [username, password, firstname, lastname, email],
-    (err, results) => {
-      if (err) res.status(500).json({ Error: err });
-      else res.json({ success: 'User registered' });
-      next();
-
-    });
+  const sql = 'INSERT INTO users (username, password, firstname, lastname, email, score) VALUES ($1, $2, $3, $4, $5, $6);';
+  client
+    .query({
+      text: sql,
+      values: [username, password, firstname, lastname, email, 0],
+    })
+    .then(() => res.json({ username, isAuthenticated: true }))
+    .catch(err => res.status(500).json({ Error: err }));
 };
 
 userController.verifyUser = (req, res, next) => {
@@ -30,10 +30,10 @@ userController.verifyUser = (req, res, next) => {
     } else if (results.rows.length > 0) {
       const dbUsername = results.rows[0].username;
       const dbPassword = results.rows[0].password;
-      if (password === dbPassword) res.json({ username: dbUsername, login: true });
-      else res.json({ username: dbUsername, login: false });
+      if (password === dbPassword) res.json({ username: dbUsername, isAuthenticated: true });
+      else res.json({ username: dbUsername, isAuthenticated: false });
 
-    } else res.json({ username, login: false });
+    } else res.json({ username, isAuthenticated: false });
 
   });
 };
