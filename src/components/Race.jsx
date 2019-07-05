@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 10px;
-  border-radius: 10px;
+
 `;
 
 const RaceTrack = styled.div`
@@ -17,6 +17,10 @@ const RaceTrack = styled.div`
 
 const PlayerLabel = styled.h4`
   margin: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 `;
 
 const Race = ({

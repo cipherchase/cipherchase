@@ -10,14 +10,14 @@ const Races = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: 1075px;
+  width: 1100px;
   background: white;
   border-radius: 10px;
 `;
 
 const ControlPanel = styled.div`
   display: grid;
-  width: 1075px;
+  width: 1100px;
   grid-template-columns: repeat(3, 33%);
   text-align: center;
   margin-top: 10px;
@@ -30,7 +30,6 @@ const ControlPanel = styled.div`
 `;
 
 const PlayButton = styled.button`
-  font-size: 30px;
   font-weight: 700;
   padding: 15px 0;
   font-size: 2rem;
