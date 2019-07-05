@@ -73,7 +73,7 @@ const gameReducer = (state = initialState, action) => {
     case types.MOVE_CPU:
       cpuPosition = state.cpuPosition + state.cpuSpeed;
       gameActive = true;
-      message = "uWu"
+      message = 'uWu';
       if (cpuPosition >= (300 - 1)) {
         message = 'CPU Wins!';
         gameActive = false;
