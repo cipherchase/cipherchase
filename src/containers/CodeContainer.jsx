@@ -25,7 +25,7 @@ const CodeContainer = ({
     if (e.which === 32) e.preventDefault();
     const keyPressChar = String.fromCharCode(e.which);
     const currentLetter = document.querySelector('#currentLetter');
-    currentLetter.style.backgroundColor = 'yellow';
+    currentLetter.style.backgroundColor = 'rgba(19, 35, 47, .9)';
 
     if (codeChallenge.substring(charIndex, charIndex + 5) === '<br/>' && e.which === 13) {
       movePlayer(5); // Enter
@@ -79,8 +79,8 @@ const CodeContainer = ({
         if (gameActive) handleTabPress(e);
       }}
     >
-      <span id='correct' />
-      <span id='currentLetter' style={{ backgroundColor: 'yellow' }} />
+      <span id='correct' style={{ color: '#222' }} />
+      <span id='currentLetter' style={{ background: 'rgba(19, 35, 47, .9)', color: 'white' }} />
       <span id='incomplete' style={{ color: '#222' }} />
     </Wrapper>
   );
