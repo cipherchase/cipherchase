@@ -2,4 +2,4 @@
 
 *Test your typing skills with cipher chase*
 
-![image](https://user-images.githubusercontent.com/46798151/60693056-c21dbf80-9ea6-11e9-9992-e42558eef18c.png)
+![image](https://user-images.githubusercontent.com/46798151/60698203-521a3400-9ebc-11e9-8608-48d22b97d90d.png)
