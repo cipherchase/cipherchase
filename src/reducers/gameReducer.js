@@ -93,6 +93,7 @@ const gameReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: action.payload.isAuthenticated,
         username: action.payload.username,
+        wins: action.payload.score,
       };
 
     case types.SIGN_UP:
@@ -100,6 +101,7 @@ const gameReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: action.payload.isAuthenticated,
         username: action.payload.username,
+        wins: action.payload.score,
       };
 
     default:

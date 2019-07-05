@@ -18,20 +18,21 @@ userController.createUser = (req, res, next) => {
       text: sql,
       values: [username, password, firstname, lastname, email, 0],
     })
-    .then(() => res.json({ username, isAuthenticated: true }))
+    .then(() => res.json({ username, isAuthenticated: true, score: 0 }))
     .catch(err => res.status(500).json({ Error: err }));
 };
 
 userController.verifyUser = (req, res, next) => {
   const { username, password } = req.body;
-  client.query(`SELECT username, password from users WHERE username = '${username}';`, (err, results) => {
+  client.query(`SELECT username, score, password from users WHERE username = '${username}';`, (err, results) => {
     if (err) res.status(500).json({ Error: err });
     else if (results.rows.length > 0) {
       const dbUsername = results.rows[0].username;
       const dbPassword = results.rows[0].password;
-      if (password === dbPassword) res.json({ username: dbUsername, isAuthenticated: true });
-      else res.json({ username: dbUsername, isAuthenticated: false });
-    } else res.json({ username, isAuthenticated: false });
+      const { score } = results.rows[0];
+      if (password === dbPassword) res.json({ username: dbUsername, isAuthenticated: true, score });
+      else res.json({ username: dbUsername, isAuthenticated: false, score: 0 });
+    } else res.json({ username, isAuthenticated: false, score: 0 });
 
   });
 };

@@ -43,6 +43,7 @@ export const login = (username, password) => dispatch => {
         payload: {
           username: auth.username,
           isAuthenticated: auth.isAuthenticated,
+          score: auth.score,
         },
       });
     });
@@ -67,6 +68,7 @@ export const signup = (username, password, firstname, lastname, email) => dispat
         payload: {
           username: auth.username,
           isAuthenticated: auth.isAuthenticated,
+          score: auth.score,
         },
       });
     });
