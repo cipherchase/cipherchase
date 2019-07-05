@@ -5,10 +5,10 @@ const initialState = {
   playerPosition: 0,
   cpuPosition: 0,
   playerSpeed: 0,
-  cpuSpeed: Math.random() * 2 + 2,
+  cpuSpeed: Math.random() * 0.75 + 0.75,
   intervalID: null,
   wins: 0,
-  winner: 'Play Now!',
+  message: 'Play Now!',
   gameActive: false,
   charIndex: 0,
   user: false,
@@ -19,7 +19,7 @@ const gameReducer = (state = initialState, action) => {
   let playerSpeed;
   let playerPosition;
   let cpuPosition;
-  let winner;
+  let message;
   let gameActive;
   let newWins;
   let codeChallenge;
@@ -39,7 +39,7 @@ const gameReducer = (state = initialState, action) => {
         else i += 1;
         codeLength += 1;
       }
-      playerSpeed = 800 / codeLength;
+      playerSpeed = 300 / codeLength;
       return {
         ...initialState,
         intervalID: state.intervalID,
@@ -55,8 +55,9 @@ const gameReducer = (state = initialState, action) => {
       playerPosition = state.playerPosition + state.playerSpeed;
       gameActive = true;
       newWins = state.wins;
-      if (playerPosition >= (800 - 1)) {
-        winner = 'Player Wins';
+      message = '=W=';
+      if (playerPosition >= (300 - 2)) {
+        message = 'Player Wins';
         newWins += 1;
         gameActive = false;
       }
@@ -64,7 +65,7 @@ const gameReducer = (state = initialState, action) => {
         ...state,
         charIndex,
         playerPosition,
-        winner,
+        message,
         gameActive,
         wins: newWins,
       };
@@ -72,14 +73,15 @@ const gameReducer = (state = initialState, action) => {
     case types.MOVE_CPU:
       cpuPosition = state.cpuPosition + state.cpuSpeed;
       gameActive = true;
-      if (cpuPosition >= (800 - 1)) {
-        winner = 'CPU Wins!';
+      message = 'uWu';
+      if (cpuPosition >= (300 - 1)) {
+        message = 'CPU Wins!';
         gameActive = false;
       }
       return {
         ...state,
         cpuPosition,
-        winner,
+        message,
         gameActive,
       };
 

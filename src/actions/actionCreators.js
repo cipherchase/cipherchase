@@ -35,8 +35,8 @@ export const playGame = () => dispatch => {
 export const login = (username, password) => dispatch => {
   fetch('http://localhost:3000/login', {
     method: 'POST',
-    body: JSON.stringify({ username, password, }),
-    headers: { 'Content-type': 'application/json; charset=UTF-8', },
+    body: JSON.stringify({ username, password }),
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
   })
     .then(response => response.json())
     .then(json => {
@@ -47,8 +47,10 @@ export const login = (username, password) => dispatch => {
 export const signup = (username, password, firstname, lastname, email) => dispatch => {
   fetch('http://localhost:3000/signup', {
     method: 'POST',
-    body: JSON.stringify({ username, password, firstname, lastname, email, }),
-    headers: { 'Content-type': 'application/json; charset=UTF-8', },
+    body: JSON.stringify({
+      username, password, firstname, lastname, email,
+    }),
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
   })
     .then(response => response.json())
     .then(json => {
