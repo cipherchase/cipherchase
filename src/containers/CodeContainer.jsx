@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 1100px;
+  width: 600px;
   height: 250px;
   padding: 35px;
   margin-top: 20px;
-  font-size: 35px;
+  font-size: 1.6em;
   background: white;
   border-radius: 10px;
   outline: none;

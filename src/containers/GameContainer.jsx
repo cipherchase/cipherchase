@@ -10,19 +10,19 @@ const Races = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: 1100px;
+  width: 600px;
   background: white;
   border-radius: 10px;
 `;
 
 const ControlPanel = styled.div`
   display: grid;
-  width: 1100px;
+  width: 600px;
   grid-template-columns: repeat(3, 33%);
   text-align: center;
   margin-top: 10px;
   padding: 15px 0;
-  font-size: 1.25rem;
+  font-size: .75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -32,7 +32,7 @@ const ControlPanel = styled.div`
 const PlayButton = styled.button`
   font-weight: 700;
   padding: 15px 0;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -42,14 +42,35 @@ const PlayButton = styled.button`
 `;
 
 const Wrapper = styled.div`
-  background: rgba(19, 35, 47, .9);
-  padding: 40px;
-  max-width: 1200px;
+  max-width: 700px;
   margin: 40px auto;
-  border-radius: 4px;
+`;
+
+const Title = styled.div`
+  font-weight: 700;
+  padding: 15px 0;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #1ab188;
+  color: white;
+  text-align: center;
+  width: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+`;
+
+
+const Game = styled.div`
+  background: rgba(19, 35, 47, .9);
+  padding: 20px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 `;
 
 const mapStateToProps = store => ({
@@ -118,21 +139,24 @@ const GameContainer = ({
 
   return (
     <Wrapper>
-      <Races>
-        <Race playerName="CPU" position={cpuPosition} shipColor="#c15ce7" circleColor="purple" />
-        <Race playerName="P1" position={playerPosition} shipColor="#1ab188" circleColor="green" />
-      </Races>
-      <CodeContainer
-        codeChallenge={codeChallenge}
-        charIndex={charIndex}
-        movePlayer={movePlayer}
-        gameActive={gameActive}
-      />
-      <ControlPanel>
-        <h2>Score: {wins}</h2>
-        <PlayButton onClick={playGame}>START</PlayButton>
-        <h2>{message}</h2>
-      </ControlPanel>
+      <Title>Cipher Chase</Title>
+      <Game>
+        <Races>
+          <Race playerName="CPU" position={cpuPosition} shipColor="#c15ce7" circleColor="purple" />
+          <Race playerName="P1" position={playerPosition} shipColor="#1ab188" circleColor="green" />
+        </Races>
+        <CodeContainer
+          codeChallenge={codeChallenge}
+          charIndex={charIndex}
+          movePlayer={movePlayer}
+          gameActive={gameActive}
+        />
+        <ControlPanel>
+          <h2>Score: {wins}</h2>
+          <PlayButton onClick={playGame}>START</PlayButton>
+          <h2>{message}</h2>
+        </ControlPanel>
+      </Game>
     </Wrapper>
   );
 };

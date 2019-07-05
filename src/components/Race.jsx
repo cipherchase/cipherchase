@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const RaceTrack = styled.div`
-  width: 854px;
+  width: 354px;
   border-top: 3px dashed black;
   position: relative;
   left: -54px;
