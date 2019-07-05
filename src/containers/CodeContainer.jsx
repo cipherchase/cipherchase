@@ -10,6 +10,8 @@ const Wrapper = styled.div`
   background: white;
   border-radius: 10px;
   outline: none;
+  font-weight: 500;
+  letter-spacing: 0.1em;
 `;
 
 const CodeContainer = ({
@@ -77,7 +79,7 @@ const CodeContainer = ({
         if (gameActive) handleTabPress(e);
       }}
     >
-      <span id='correct' style={{ color: 'white', backgroundColor: 'green' }} />
+      <span id='correct' />
       <span id='currentLetter' style={{ backgroundColor: 'yellow' }} />
       <span id='incomplete' style={{ color: '#222' }} />
     </Wrapper>
