@@ -2,12 +2,16 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  border: 1px solid black;
-  width: 1075px;
+  width: 600px;
   height: 250px;
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 30px;
+  padding: 35px;
+  margin-top: 20px;
+  font-size: 1.6em;
+  background: white;
+  border-radius: 10px;
+  outline: none;
+  font-weight: 500;
+  letter-spacing: 0.1em;
 `;
 
 const CodeContainer = ({
@@ -21,7 +25,7 @@ const CodeContainer = ({
     if (e.which === 32) e.preventDefault();
     const keyPressChar = String.fromCharCode(e.which);
     const currentLetter = document.querySelector('#currentLetter');
-    currentLetter.style.backgroundColor = 'yellow';
+    currentLetter.style.backgroundColor = 'rgba(19, 35, 47, .9)';
 
     if (codeChallenge.substring(charIndex, charIndex + 5) === '<br/>' && e.which === 13) {
       movePlayer(5); // Enter
@@ -66,6 +70,7 @@ const CodeContainer = ({
 
   return (
     <Wrapper
+      id="codingBox"
       tabIndex={-1}
       onKeyPress={(e) => {
         if (gameActive) handleKeyPress(e);
@@ -74,9 +79,9 @@ const CodeContainer = ({
         if (gameActive) handleTabPress(e);
       }}
     >
-      <span id='correct' style={{ color: 'white', backgroundColor: 'green' }} />
-      <span id='currentLetter' style={{ backgroundColor: 'yellow' }} />
-      <span id='incomplete' style={{ color: '#222' }} />
+      <span id='correct' style={{ background: 'white', color: '#222' }} />
+      <span id='currentLetter' style={{ background: 'rgba(19, 35, 47, .9)', color: 'white' }} />
+      <span id='incomplete' style={{ background: 'white', color: '#222' }} />
     </Wrapper>
   );
 };
