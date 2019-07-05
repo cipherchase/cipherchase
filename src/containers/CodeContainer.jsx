@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   font-size: 30px;
   background: white;
   border-radius: 10px;
+  outline: none;
 `;
 
 const CodeContainer = ({
