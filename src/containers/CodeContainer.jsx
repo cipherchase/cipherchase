@@ -79,9 +79,9 @@ const CodeContainer = ({
         if (gameActive) handleTabPress(e);
       }}
     >
-      <span id='correct' style={{ color: '#222' }} />
+      <span id='correct' style={{ background: 'white', color: '#222' }} />
       <span id='currentLetter' style={{ background: 'rgba(19, 35, 47, .9)', color: 'white' }} />
-      <span id='incomplete' style={{ color: '#222' }} />
+      <span id='incomplete' style={{ background: 'white', color: '#222' }} />
     </Wrapper>
   );
 };
