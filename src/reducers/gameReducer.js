@@ -46,7 +46,8 @@ const gameReducer = (state = initialState, action) => {
         intervalID: state.intervalID,
         wins: state.wins,
         gameActive: true,
-        user: true,
+        username: state.username,
+        isAuthenticated: true,
         codeChallenge,
         playerSpeed,
       };

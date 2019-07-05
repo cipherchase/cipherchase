@@ -25,14 +25,12 @@ userController.createUser = (req, res, next) => {
 userController.verifyUser = (req, res, next) => {
   const { username, password } = req.body;
   client.query(`SELECT username, password from users WHERE username = '${username}';`, (err, results) => {
-    if (err) {
-      res.status(500).json({ Error: err });
-    } else if (results.rows.length > 0) {
+    if (err) res.status(500).json({ Error: err });
+    else if (results.rows.length > 0) {
       const dbUsername = results.rows[0].username;
       const dbPassword = results.rows[0].password;
       if (password === dbPassword) res.json({ username: dbUsername, isAuthenticated: true });
       else res.json({ username: dbUsername, isAuthenticated: false });
-
     } else res.json({ username, isAuthenticated: false });
 
   });
@@ -48,11 +46,12 @@ userController.getChallenge = (req, res, next) => {
 };
 
 userController.updateScore = (req, res, next) => {
-  const { username, score } = req.body;
-  const sql = `UPDATE users SET score = ${score} WHERE username = '${username}';`;
+  console.log('hiii');
+  const { player, score } = req.body;
+  const sql = `UPDATE users SET score = ${score} WHERE username = '${player}';`;
   client
     .query(sql)
-    .then(() => res.set('Content-Type', 'application/json').send(JSON.stringify({ Update: 'Success!' })))
+    .then(() => res.set('Content-Type', 'application/json').send(JSON.stringify({ update: 'Success!' })))
     .catch(err => res.status(500).json({ Error: err }));
 };
 

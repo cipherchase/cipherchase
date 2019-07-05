@@ -23,6 +23,7 @@ const mapStateToProps = store => ({
   intervalID: store.games.intervalID,
   winner: store.games.winner,
   wins: store.games.wins,
+  username: store.games.username,
 });
 
 
@@ -46,12 +47,13 @@ const GameContainer = ({
   gameActive,
   winner,
   wins,
+  username,
 }) => {
-
-  const saveScore = (username, score) => {
+  console.log('username is ', username);
+  const saveScore = (player, score) => {
     fetch('http://localhost:3000/scores', {
       method: 'PATCH',
-      body: JSON.stringify({ username, score }),
+      body: JSON.stringify({ player, score }),
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
     })
       .then(response => response.json())
@@ -71,7 +73,7 @@ const GameContainer = ({
     // When player wins, save user's score to database
     // For now, username temporarily is hardcoded to 'codesmith'
     // until it is available in Redux Store
-    if (winner === 'Player Wins') saveScore('codesmith', wins);
+    if (winner === 'Player Wins') saveScore(username, wins);
 
   }, [gameActive]);
 
