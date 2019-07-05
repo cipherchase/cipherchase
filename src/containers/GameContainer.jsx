@@ -49,7 +49,6 @@ const GameContainer = ({
   wins,
   username,
 }) => {
-  console.log('username is ', username);
   const saveScore = (player, score) => {
     fetch('http://localhost:3000/scores', {
       method: 'PATCH',
@@ -70,9 +69,7 @@ const GameContainer = ({
       clearInterval(intervalID);
       setIntervalID(null);
     }
-    // When player wins, save user's score to database
-    // For now, username temporarily is hardcoded to 'codesmith'
-    // until it is available in Redux Store
+    // When player wins, save player's score to database
     if (winner === 'Player Wins') saveScore(username, wins);
 
   }, [gameActive]);

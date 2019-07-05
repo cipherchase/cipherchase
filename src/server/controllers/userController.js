@@ -46,7 +46,6 @@ userController.getChallenge = (req, res, next) => {
 };
 
 userController.updateScore = (req, res, next) => {
-  console.log('hiii');
   const { player, score } = req.body;
   const sql = `UPDATE users SET score = ${score} WHERE username = '${player}';`;
   client
