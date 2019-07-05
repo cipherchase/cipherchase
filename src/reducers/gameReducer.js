@@ -46,7 +46,6 @@ const gameReducer = (state = initialState, action) => {
         wins: state.wins,
         gameActive: true,
         user: true,
-        message,
         codeChallenge,
         playerSpeed,
       };
@@ -56,6 +55,7 @@ const gameReducer = (state = initialState, action) => {
       playerPosition = state.playerPosition + state.playerSpeed;
       gameActive = true;
       newWins = state.wins;
+      message = '=W='
       if (playerPosition >= (300 - 1)) {
         message = 'Player Wins';
         newWins += 1;
@@ -73,6 +73,7 @@ const gameReducer = (state = initialState, action) => {
     case types.MOVE_CPU:
       cpuPosition = state.cpuPosition + state.cpuSpeed;
       gameActive = true;
+      message = "uWu"
       if (cpuPosition >= (300 - 1)) {
         message = 'CPU Wins!';
         gameActive = false;

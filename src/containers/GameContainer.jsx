@@ -24,7 +24,6 @@ const ControlPanel = styled.div`
   padding: 7px 0;
   font-size: .75rem;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
   color: white;
 `;
@@ -32,9 +31,8 @@ const ControlPanel = styled.div`
 const PlayButton = styled.button`
   font-weight: 700;
   padding: 7px 0;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
   background: #1ab188;
   color: #fff;
@@ -53,7 +51,7 @@ const Title = styled.div`
   font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   background: #1ab188;
   color: white;
   text-align: center;
@@ -151,9 +149,9 @@ const GameContainer = ({
           gameActive={gameActive}
         />
         <ControlPanel>
-          <h2>Score: {wins}</h2>
+          <h2>SCORE : {wins}</h2>
           <PlayButton onClick={playGame}>START</PlayButton>
-          <h2>{message}</h2>
+          <h2 style={{ letterSpacing: '.2em' }}>{message}</h2>
         </ControlPanel>
       </Game>
     </Wrapper>
