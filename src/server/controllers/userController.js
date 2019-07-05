@@ -30,10 +30,10 @@ userController.verifyUser = (req, res, next) => {
     } else if (results.rows.length > 0) {
       const dbUsername = results.rows[0].username;
       const dbPassword = results.rows[0].password;
-      if (password === dbPassword) res.json({ user: dbUsername, login: true });
-      else res.json({ user: dbUsername, login: false });
+      if (password === dbPassword) res.json({ username: dbUsername, login: true });
+      else res.json({ username: dbUsername, login: false });
 
-    } else res.json({ user: username, login: false });
+    } else res.json({ username, login: false });
 
   });
 };

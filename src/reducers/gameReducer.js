@@ -12,6 +12,7 @@ const initialState = {
   gameActive: false,
   charIndex: 0,
   user: false,
+  username: null,
 };
 
 const gameReducer = (state = initialState, action) => {
@@ -87,7 +88,12 @@ const gameReducer = (state = initialState, action) => {
       return { ...state, intervalID: action.payload.intervalID };
 
     case types.LOG_IN:
-      return { ...state, user: action.payload };
+      console.log('action payload ', action.payload);
+      return {
+        ...state,
+        user: action.payload.auth,
+        username: action.payload.username,
+      };
 
     case types.SIGN_UP:
       return { ...state, user: action.payload };

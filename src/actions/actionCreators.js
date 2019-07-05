@@ -27,28 +27,38 @@ export const setIntervalID = intervalID => ({
 export const playGame = () => dispatch => {
   fetch('http://localhost:3000/getChallenge')
     .then(res => res.json())
-    .then(challenge => {
-      dispatch({ type: types.PLAY_GAME, payload: { challenge } });
-    });
+    .then(challenge => dispatch({ type: types.PLAY_GAME, payload: { challenge } }));
 };
 
 export const login = (username, password) => dispatch => {
   fetch('http://localhost:3000/login', {
     method: 'POST',
-    body: JSON.stringify({ username, password, }),
-    headers: { 'Content-type': 'application/json; charset=UTF-8', },
+    body: JSON.stringify({ username, password }),
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
   })
     .then(response => response.json())
-    .then(json => {
-      dispatch({ type: types.LOG_IN, payload: json });
+    .then(auth => {
+      dispatch({
+        type: types.LOG_IN,
+        payload: {
+          username: auth.username,
+          authenticated: auth.login,
+        },
+      });
     });
 };
 
 export const signup = (username, password, firstname, lastname, email) => dispatch => {
   fetch('http://localhost:3000/signup', {
     method: 'POST',
-    body: JSON.stringify({ username, password, firstname, lastname, email, }),
-    headers: { 'Content-type': 'application/json; charset=UTF-8', },
+    body: JSON.stringify({
+      username,
+      password,
+      firstname,
+      lastname,
+      email,
+    }),
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
   })
     .then(response => response.json())
     .then(json => {
