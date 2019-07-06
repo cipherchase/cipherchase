@@ -4,12 +4,16 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/actionCreators';
 
 const Wrapper = styled.div`
-  border: 1px solid black;
-  width: 1150px;
+  width: 600px;
   height: 250px;
-  margin: 10px;
-  padding: 10px;
-  font-size: 30px;
+  padding: 35px;
+  margin-top: 20px;
+  font-size: 1.6em;
+  background: white;
+  border-radius: 10px;
+  outline: none;
+  font-weight: 500;
+  letter-spacing: 0.1em;
 `;
 
 const mapStateToProps = store => ({
@@ -18,27 +22,34 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  moveChar: num => dispatch(actions.moveChar(num)),
+  movePlayer: num => dispatch(actions.movePlayer(num)),
 });
 
-const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
+const CodeContainer = ({ codeChallenge, charIndex, movePlayer }) => {
 
   const handleKeyPress = (e) => {
     if (e.which === 32) e.preventDefault();
     const keyPressChar = String.fromCharCode(e.which);
     const currentLetter = document.querySelector('#currentLetter');
-    currentLetter.style.backgroundColor = 'yellow';
+    currentLetter.style.backgroundColor = 'rgba(19, 35, 47, .9)';
 
-    if (codeChallenge.substring(charIndex, charIndex + 5) === '<br/>' && e.which === 13) moveChar(5); // Enter
-    else if (codeChallenge.substring(charIndex, charIndex + 6) === '&nbsp;' && e.which === 32) moveChar(6); // Space
-    else if (keyPressChar === codeChallenge[charIndex]) moveChar(1); // Correct char
-    else currentLetter.style.backgroundColor = 'red';
+    if (codeChallenge.substring(charIndex, charIndex + 5) === '<br/>' && e.which === 13) {
+      movePlayer(5); // Enter
+    } else if (codeChallenge.substring(charIndex, charIndex + 6) === '&nbsp;') {
+      if (codeChallenge.substring(charIndex, charIndex + 12) !== '&nbsp;&nbsp;' && e.which === 32) {
+        movePlayer(6); // Space
+      }
+    } else if (keyPressChar === codeChallenge[charIndex]) {
+      movePlayer(1); // Correct char
+    } else {
+      currentLetter.style.backgroundColor = 'red';
+    }
   };
 
   const handleTabPress = (e) => {
     if (e.keyCode === 9) {
       e.preventDefault();
-      if (codeChallenge.substring(charIndex, charIndex + 12) === '&nbsp;&nbsp;') moveChar(12); // Tab
+      if (codeChallenge.substring(charIndex, charIndex + 12) === '&nbsp;&nbsp;') movePlayer(12); // Tab
     }
   };
 
@@ -65,13 +76,14 @@ const CodeContainer = ({ codeChallenge, charIndex, moveChar }) => {
 
   return (
     <Wrapper
+      id="codingBox"
       tabIndex={-1}
       onKeyPress={handleKeyPress}
       onKeyDown={handleTabPress}
     >
-      <span id='correct' style={{ color: 'white', backgroundColor: 'green' }} />
-      <span id='currentLetter' style={{ backgroundColor: 'yellow' }} />
-      <span id='incomplete' style={{ color: '#222' }} />
+      <span id='correct' style={{ background: 'white', color: '#222' }} />
+      <span id='currentLetter' style={{ background: 'rgba(19, 35, 47, .9)', color: 'white' }} />
+      <span id='incomplete' style={{ background: 'white', color: '#222' }} />
     </Wrapper>
   );
 };
