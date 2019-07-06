@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '../../dist/')));
+app.use(express.static(path.join(__dirname, '../../')));
 app.use((req, res, next) => {
   console.log(req.body);
   next();
