@@ -1,14 +1,15 @@
 /* eslint-disable arrow-parens */
 import * as types from './actionTypes';
 
-/* example of an action creator
+export const setUsername = username => ({
+  type: types.SET_USERNAME,
+  payload: { username },
+});
 
-  export const actionName = (arg) => ({
-    type: types.ACTION ,
-    payload: arg,
-  })
-
-*/
+export const setPassword = password => ({
+  type: types.SET_PASSWORD,
+  payload: { password },
+});
 
 export const movePlayer = num => ({
   type: types.MOVE_PLAYER,
@@ -25,7 +26,6 @@ export const setIntervalID = intervalID => ({
 });
 
 export const playGame = () => dispatch => {
-  console.log("here");
   fetch('http://localhost:3000/getChallenge')
     .then(res => res.json())
     .then(challenge => dispatch({

@@ -13,6 +13,7 @@ const initialState = {
   charIndex: 0,
   isAuthenticated: false,
   username: null,
+  password: null,
 };
 
 const gameReducer = (state = initialState, action) => {
@@ -107,6 +108,18 @@ const gameReducer = (state = initialState, action) => {
         isAuthenticated: action.payload.isAuthenticated,
         username: action.payload.username,
         wins: action.payload.score,
+      };
+
+    case types.SET_USERNAME:
+      return {
+        ...state,
+        username: action.payload.username,
+      };
+
+    case types.SET_PASSWORD:
+      return {
+        ...state,
+        password: action.payload.password,
       };
 
     default:

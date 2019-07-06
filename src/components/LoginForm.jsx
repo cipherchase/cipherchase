@@ -1,20 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from '../actions/actionCreators';
+import { login, setUsername, setPassword } from '../actions/actionCreators';
 import './form.css';
 
 const mapStateToProps = store => ({
+  username: store.games.username,
+  password: store.games.password,
 });
 
 const mapDispatchToProps = dispatch => ({
   signIn: (username, password) => dispatch(login(username, password)),
+  setUser: username => dispatch(setUsername(username)),
+  setPW: password => dispatch(setPassword(password)),
 });
 
-const LoginForm = ({ signIn }) => {
+const LoginForm = ({
+  username,
+  password,
+  setUser,
+  setPW,
+  signIn,
+}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signIn(username.value, password.value);
+    signIn(username, password);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name === 'username') setUser(value);
+    else if (name === 'password') setPW(value);
   };
 
   return (
@@ -39,6 +55,7 @@ const LoginForm = ({ signIn }) => {
                 type="text"
                 required
                 placeholder="Username:"
+                onChange={handleChange}
               />
             </div>
 
@@ -49,6 +66,7 @@ const LoginForm = ({ signIn }) => {
                 type="password"
                 required
                 placeholder="Password:"
+                onChange={handleChange}
               />
             </div>
             <p className="forgot">
