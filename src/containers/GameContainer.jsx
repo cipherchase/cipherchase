@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
-import * as actions from '../actions/actionCreators';
-
+import styled from 'styled-components';
 import Race from '../components/Race.jsx';
 import CodeContainer from './CodeContainer.jsx';
+import * as actions from '../actions/actionCreators';
+
 
 const Races = styled.div`
   display: flex;

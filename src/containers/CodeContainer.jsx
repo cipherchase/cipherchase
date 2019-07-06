@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import * as actions from '../actions/actionCreators';
 
 const Wrapper = styled.div`
   width: 600px;
@@ -14,12 +16,16 @@ const Wrapper = styled.div`
   letter-spacing: 0.1em;
 `;
 
-const CodeContainer = ({
-  codeChallenge,
-  charIndex,
-  movePlayer,
-  gameActive,
-}) => {
+const mapStateToProps = store => ({
+  codeChallenge: store.games.codeChallenge,
+  charIndex: store.games.charIndex,
+});
+
+const mapDispatchToProps = dispatch => ({
+  movePlayer: num => dispatch(actions.movePlayer(num)),
+});
+
+const CodeContainer = ({ codeChallenge, charIndex, movePlayer }) => {
 
   const handleKeyPress = (e) => {
     if (e.which === 32) e.preventDefault();
@@ -72,12 +78,8 @@ const CodeContainer = ({
     <Wrapper
       id="codingBox"
       tabIndex={-1}
-      onKeyPress={(e) => {
-        if (gameActive) handleKeyPress(e);
-      }}
-      onKeyDown={(e) => {
-        if (gameActive) handleTabPress(e);
-      }}
+      onKeyPress={handleKeyPress}
+      onKeyDown={handleTabPress}
     >
       <span id='correct' style={{ background: 'white', color: '#222' }} />
       <span id='currentLetter' style={{ background: 'rgba(19, 35, 47, .9)', color: 'white' }} />
@@ -86,4 +88,4 @@ const CodeContainer = ({
   );
 };
 
-export default CodeContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(CodeContainer);

@@ -88,6 +88,6 @@ const SignupForm = ({ signUp }) => {
       </div>
     </div>
   );
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
