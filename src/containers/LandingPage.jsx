@@ -7,14 +7,14 @@ import Header from './Header.jsx';
 import GameContainer from './GameContainer.jsx';
 
 const mapStateToProps = store => ({
-  user: store.games.user,
+  isAuthenticated: store.games.isAuthenticated,
 });
 
-const LandingPage = ({ user }) => (
+const LandingPage = ({ isAuthenticated }) => (
   <div>
     <BrowserRouter>
       <Header />
-      {!user ? (
+      {!isAuthenticated ? (
         <div>
           <Route path="/auth" exact component={LoginForm} />
           <Route path="/join" exact component={SignupForm} />
