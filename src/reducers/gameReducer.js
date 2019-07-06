@@ -5,13 +5,14 @@ const initialState = {
   playerPosition: 0,
   cpuPosition: 0,
   playerSpeed: 0,
-  cpuSpeed: Math.random() * 0.75 + 0.75,
+  cpuSpeed: 0,
   intervalID: null,
   wins: 0,
   message: 'Play Now!',
   gameActive: false,
   charIndex: 0,
-  user: false,
+  isAuthenticated: false,
+  username: null,
 };
 
 const gameReducer = (state = initialState, action) => {
@@ -25,10 +26,12 @@ const gameReducer = (state = initialState, action) => {
   let codeChallenge;
   let i;
   let codeLength;
+  let newCPUSpeed;
 
   switch (action.type) {
 
     case types.PLAY_GAME:
+      newCPUSpeed = action.payload.cpuSpeed;
       codeChallenge = action.payload.challenge;
       i = 0;
       codeLength = 0;
@@ -45,8 +48,10 @@ const gameReducer = (state = initialState, action) => {
         intervalID: state.intervalID,
         wins: state.wins,
         gameActive: true,
-        user: true,
+        username: state.username,
+        isAuthenticated: true,
         codeChallenge,
+        cpuSpeed: newCPUSpeed,
         playerSpeed,
       };
 
@@ -89,13 +94,22 @@ const gameReducer = (state = initialState, action) => {
       return { ...state, intervalID: action.payload.intervalID };
 
     case types.LOG_IN:
-      return { ...state, user: action.payload };
+      return {
+        ...state,
+        isAuthenticated: action.payload.isAuthenticated,
+        username: action.payload.username,
+        wins: action.payload.score,
+      };
 
     case types.SIGN_UP:
-      return { ...state, user: action.payload };
+      return {
+        ...state,
+        isAuthenticated: action.payload.isAuthenticated,
+        username: action.payload.username,
+        wins: action.payload.score,
+      };
 
     default:
-
       return state;
   }
 };

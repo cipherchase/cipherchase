@@ -27,9 +27,13 @@ export const setIntervalID = intervalID => ({
 export const playGame = () => dispatch => {
   fetch('http://localhost:3000/getChallenge')
     .then(res => res.json())
-    .then(challenge => {
-      dispatch({ type: types.PLAY_GAME, payload: { challenge } });
-    });
+    .then(challenge => dispatch({
+      type: types.PLAY_GAME,
+      payload: {
+        challenge,
+        cpuSpeed: Math.random() * 2 + 0.75,
+      },
+    }));
 };
 
 export const login = (username, password) => dispatch => {
@@ -39,8 +43,15 @@ export const login = (username, password) => dispatch => {
     headers: { 'Content-type': 'application/json; charset=UTF-8' },
   })
     .then(response => response.json())
-    .then(json => {
-      dispatch({ type: types.LOG_IN, payload: json });
+    .then(auth => {
+      dispatch({
+        type: types.LOG_IN,
+        payload: {
+          username: auth.username,
+          isAuthenticated: auth.isAuthenticated,
+          score: auth.score,
+        },
+      });
     });
 };
 
@@ -48,12 +59,23 @@ export const signup = (username, password, firstname, lastname, email) => dispat
   fetch('http://localhost:3000/signup', {
     method: 'POST',
     body: JSON.stringify({
-      username, password, firstname, lastname, email,
+      username,
+      password,
+      firstname,
+      lastname,
+      email,
     }),
     headers: { 'Content-type': 'application/json; charset=UTF-8' },
   })
     .then(response => response.json())
-    .then(json => {
-      dispatch({ type: types.SIGN_UP, payload: json });
+    .then(auth => {
+      dispatch({
+        type: types.SIGN_UP,
+        payload: {
+          username: auth.username,
+          isAuthenticated: auth.isAuthenticated,
+          score: auth.score,
+        },
+      });
     });
 };

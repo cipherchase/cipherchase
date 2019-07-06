@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const mapStateToProps = store => ({
-  user: store.games.user,
+  isAuthenticated: store.games.isAuthenticated,
 });
 
-const Header = ({ user }) => (
+const Header = ({ isAuthenticated }) => (
   <div>
     <nav>
       <h2>
         <Link to="/">Home</Link>
       </h2>
-      {!user ? (
+      {!isAuthenticated ? (
         <div>
           <h2>
             <Link to="/auth">Login</Link>
