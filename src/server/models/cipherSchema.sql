@@ -21,3 +21,9 @@ VALUES('let counter = 0;<br/>for (let i = 0; i < array.length; i++) {<br/>&nbsp;
 
 INSERT INTO codechallenges (challenge) 
 VALUES('function squareNum(num){<br/>&nbsp;&nbsp;return num*num;<br/>};');
+
+INSERT INTO codechallenges (challenge) 
+VALUES('function add(a, b) {<br/>&nbsp;&nbsp;return a + b;<br/>}');
+
+INSERT INTO codechallenges (challenge) 
+VALUES('let sum = arr.reduce((acc, val) => {<br/>&nbsp;&nbsp;return acc + val;<br/>});');
