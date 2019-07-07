@@ -27,5 +27,15 @@ describe('Game Reducer Test ', () => {
     it('should return a default state when given an undefined input', () => {
       expect(gameReducer(undefined, { type: undefined })).toEqual(state);
     });
-  })
-})
+  });
+
+  describe('unrecognized action types', () => {
+    it('should return original state without any duplication,', () => {
+      const action = { type: 'asdfghjkl' };
+      expect(gameReducer(state, action)).toBe(state);
+    });
+  });
+
+
+});
+

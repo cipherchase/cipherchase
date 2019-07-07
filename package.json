@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production nodemon server/server.js",
     "dev": "nodemon server/server.js & webpack-dev-server --open",
     "build": "webpack",
-    "test": "jest --verbose",
+    "test": "jest",
     "lint": "npx eslint '**/*.{tsx,ts,js,jsx}' --fix --quiet"
   },
   "repository": {
