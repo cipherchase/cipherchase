@@ -16,8 +16,9 @@ describe('Unit Test for Main Container', () => {
       wrapper = shallow(<MainContainer />);
     });
 
-    it('Renders a <div>', () => {
+    it('Renders a <div> and a header', () => {
       expect(wrapper.type()).toEqual('div');
+      expect(wrapper.find('h1').text()).toMatch('Cipher Chaseß');
     });
   });
 });
