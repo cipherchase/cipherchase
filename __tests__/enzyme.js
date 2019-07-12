@@ -8,8 +8,8 @@ configure({ adapter: new Adapter() });
 import MainContainer from '../src/containers/MainContainer';
 
 
-describe('React unit tests', () => {
-  describe('Race.js Test', () => {
+describe('Unit Test for Main Container', () => {
+  describe('it renders a <div> tag', () => {
     let wrapper;
 
     beforeAll(() => {
