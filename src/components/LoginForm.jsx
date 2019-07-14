@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login, setUsername, setPassword } from '../actions/actionCreators';
+import './form.css';
 
 const mapStateToProps = store => ({
   username: store.games.username,
