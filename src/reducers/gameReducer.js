@@ -58,7 +58,6 @@ const gameReducer = (state = initialState, action) => {
 
     case types.MOVE_PLAYER:
       charIndex = state.charIndex + action.payload.num;
-      console.log('charIndex : ', charIndex);
       playerPosition = state.playerPosition + state.playerSpeed;
       gameActive = true;
       newWins = state.wins;
@@ -81,7 +80,7 @@ const gameReducer = (state = initialState, action) => {
       cpuPosition = state.cpuPosition + state.cpuSpeed;
       gameActive = true;
       message = 'uWu';
-      if (cpuPosition >= (300 - 1)) {
+      if (cpuPosition >= (300 - 2)) {
         message = 'CPU Wins!';
         gameActive = false;
       }
