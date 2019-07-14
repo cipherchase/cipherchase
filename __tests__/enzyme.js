@@ -18,7 +18,9 @@ describe('Unit Test for Main Container', () => {
 
     it('Renders a <div> and a header', () => {
       expect(wrapper.type()).toEqual('div');
-      expect(wrapper.find('h1').text()).toMatch('Cipher Chaseß');
+      expect(wrapper.find('h1').text()).toMatch('Cipher Chase');
     });
   });
 });
+
+

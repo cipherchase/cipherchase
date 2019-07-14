@@ -58,6 +58,7 @@ const gameReducer = (state = initialState, action) => {
 
     case types.MOVE_PLAYER:
       charIndex = state.charIndex + action.payload.num;
+      console.log('charIndex : ', charIndex);
       playerPosition = state.playerPosition + state.playerSpeed;
       gameActive = true;
       newWins = state.wins;

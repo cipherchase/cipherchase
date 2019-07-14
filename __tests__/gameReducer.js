@@ -36,6 +36,28 @@ describe('Game Reducer Test ', () => {
     });
   });
 
+  describe('MOVE_PLAYER', () => {
+    const action = { type: 'MOVE_PLAYER', payload: 5 };
+
+    it('Game is active', () => {
+      const { gameActive } = gameReducer(state, action);
+      expect(gameActive).toBe(true);
+    });
+
+    it('Character Index should increase by 5', () => {
+      const { charIndex } = gameReducer(state, action);
+      expect(charIndex).toBe(5);
+    })
+
+  })
 
 });
 
+// MOVE_PLAYER
+// MOVE_CPU
+// SET_INTERVAL_ID
+// PLAY_GAME
+// LOG_IN
+// SIGN_UP
+// SET_USERNAME
+// SET_PASSWORD
