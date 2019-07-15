@@ -84,11 +84,3 @@ describe('Game Reducer Test ', () => {
 
 
 });
-
-// MOVE_CPU
-// SET_INTERVAL_ID
-// PLAY_GAME
-// LOG_IN
-// SIGN_UP
-// SET_USERNAME
-// SET_PASSWORD

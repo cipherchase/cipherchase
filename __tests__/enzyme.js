@@ -7,7 +7,9 @@ import 'jest-styled-components';
 configure({ adapter: new Adapter() });
 
 import MainContainer from '../src/containers/MainContainer';
-import Race from '../src/components/Race.jsx'
+import GameContainer from '../src/containers/GameContainer';
+import Race from '../src/components/Race.jsx';
+
 
 describe('React unit test', () => {
 
@@ -17,7 +19,7 @@ describe('React unit test', () => {
       wrapper = shallow(<MainContainer />);
     });
 
-    it('Renders a <div> and a header', () => {
+    it('Renders a <div> and a h1 with the text Cipher Chase', () => {
       expect(wrapper.type()).toEqual('div');
       expect(wrapper.find('h1').text()).toMatch('Cipher Chase');
     });
