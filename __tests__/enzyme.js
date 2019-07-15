@@ -48,7 +48,7 @@ describe('React unit test', () => {
       expect(wrapper.find('i')).toHaveLength(1);
     });
 
-  })
+  });
 
 });
 
