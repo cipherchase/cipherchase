@@ -8,8 +8,9 @@ configure({ adapter: new Adapter() });
 import MainContainer from '../src/containers/MainContainer';
 
 
-describe('Unit Test for Main Container', () => {
-  describe('it renders a <div> tag', () => {
+describe('React unit test', () => {
+
+  describe('Unit test for main container', () => {
     let wrapper;
 
     beforeAll(() => {
@@ -21,6 +22,7 @@ describe('Unit Test for Main Container', () => {
       expect(wrapper.find('h1').text()).toMatch('Cipher Chase');
     });
   });
+
 });
 
 

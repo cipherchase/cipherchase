@@ -26,6 +26,12 @@
     "url": "https://github.com/cipherchase/cipherchase/issues"
   },
   "homepage": "https://github.com/cipherchase/cipherchase#readme",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "css-loader": "^3.0.0",
@@ -57,6 +63,7 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "jest-styled-components": "^6.3.3",
     "nodemon": "^1.19.1",
