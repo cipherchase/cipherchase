@@ -26,6 +26,4 @@ app.get('/getallUsers', userController.getAllUsers, (req, res) => {
 
 app.get('/getChallenge', userController.getChallenge);
 
-app.listen(PORT, (err) => {
-  console.log(new Date(), err || `http://localhost:${PORT}/`);
-});
+module.exports = app.listen(PORT, (err) => { console.log(new Date(), err || `http://localhost:${PORT}/`); });

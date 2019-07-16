@@ -80,7 +80,7 @@ const gameReducer = (state = initialState, action) => {
       cpuPosition = state.cpuPosition + state.cpuSpeed;
       gameActive = true;
       message = 'uWu';
-      if (cpuPosition >= (300 - 1)) {
+      if (cpuPosition >= (300 - 2)) {
         message = 'CPU Wins!';
         gameActive = false;
       }
